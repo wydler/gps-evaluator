@@ -24,6 +24,8 @@ You may need to install php on your machine. This can be done with the command
 #### Why do I need a webserver?
 The `index.html` uses AJAX (XMLHttpRequest) to read the json-file. Without the webserver this will not work!
 
+- - -
+
 ### Start dummy gps position generator
 
 This program generates 2 different positions and save as json-file into the specified file. At the moment, the json-file must saved in the www directory and filename `data.json`.
