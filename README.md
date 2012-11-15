@@ -1,9 +1,10 @@
 GPS Evaluator
 =============
 
-# Display position on Google Maps
+Display position on Google Maps
+-------------------------------
 
-## Start webserver (linux only!)
+### Start webserver (linux only!)
 
 First you need to start a webserver. The included script starts a small php server, which is included in the php5 package. **USE THIS ONLY FOR DEVELOPMENT**
 
@@ -20,10 +21,10 @@ You may need to install php on your machine. This can be done with the command
 
 `sudo apt-get install php5`
 
-### Why do I need a webserver?
+#### Why do I need a webserver?
 The `index.html` uses AJAX (XMLHttpRequest) to read the json-file. Without the webserver this will not work!
 
-## Start dummy gps position generator
+### Start dummy gps position generator
 
 This program generates 2 different positions and save as json-file into the specified file. At the moment, the json-file must saved in the www directory and filename `data.json`.
 
