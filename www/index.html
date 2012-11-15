@@ -8,7 +8,7 @@
     #map_canvas { height: 100% }
   </style>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript">
     var map;
     var marker;
@@ -41,7 +41,7 @@
     $(document).ready(function(){
       initialize();
       update();
-      setInterval("update()", 3000);
+      setInterval("update()", 1000);
     })
   </script>
 </head>
