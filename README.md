@@ -6,7 +6,8 @@ Display position on Google Maps
 
 ### Start webserver (linux only!)
 
-First you need to start a webserver. The included script starts a small php server, which is included in the php5 package. **USE THIS ONLY FOR DEVELOPMENT**
+First you need to start a webserver. The included script starts a small php server, which is included in the php5 package.
+**USE THIS ONLY FOR DEVELOPMENT**
 
 `./start_server.sh`
 
@@ -28,7 +29,7 @@ The `index.html` uses AJAX (XMLHttpRequest) to read the json-file. Without the w
 
 ### Start dummy gps position generator
 
-This program generates 2 different positions and save as json-file into the specified file. At the moment, the json-file must saved in the www directory and filename `data.json`.
+This program generates 2 different positions and save as json-file into the specified file. At the moment, the json-file must saved in the `www` directory and filename `data.json`.
 
 `../server/build/dummy_gps_generator data.json` (assuming you are in the `www` directory)
 
