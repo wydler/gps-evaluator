@@ -17,3 +17,4 @@
 *.app
 */build/*
 www/data.json
+*.log
