@@ -3,20 +3,59 @@
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <style type="text/css">
-    html { height: 100% }
-    body { height: 100%; margin: 0px; padding: 0px }
-    #map_canvas { height: 100% }
+    html { 
+      height: 100%;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+    body { 
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    h3 {
+      padding: 0;
+    }
+    #map_canvas {
+      height: 100%;
+    }
+    #data_hud {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      color: #fff;
+      background: #333;
+      opacity: .9;
+      padding: 10px 30px 20px 30px;
+      margin: 0 0 20px 0;
+    }
+    #data_hud table {
+      width: 100%;
+    }
+    #data_hud table td {
+      padding: 3px 10px 3px 0;
+    }
+    #data_hud table td.title {
+      padding: 20px 0 5px 0;
+      margin: 0 0 5px 0;
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid #666;
+    }
   </style>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript">
     var map;
     var marker;
+    var circle;
     var latlng;
 
     function initialize() {
       var options = {
-        zoom: 17,
+        zoom: 18,
         center: new google.maps.LatLng( 50, 50 ),
         mapTypeId: google.maps.MapTypeId.HYBRID
       };
@@ -26,16 +65,85 @@
         map: map,
         animation: google.maps.Animation.DROP,
       });
+
+      circle = new google.maps.Circle({
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.5,
+        strokeWeight: 1,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+        map: map,
+        center: new google.maps.LatLng( 50, 50 ),
+        radius: 15
+      });
     }
 
     function update() {
       $.getJSON('data.json', function(data) {
-        $('#show_data').html("<p>latitude="+data.latitude+" longitude="+data.longitude+"</p>");
+        console.log(data);
 
-        latlng = new google.maps.LatLng(data.latitude, data.longitude);
+        $("#data_date").html(data.date);
+        $("#data_time").html(data.time);
+
+        $("#data_lat").html(data.latitude[0] + "' " + data.latitude[1]);
+        $("#data_lng").html(data.longitude[0] + "' " + data.longitude[1]);
+        $("#data_alt").html(data.altitude[0] + " " + data.altitude[1]);
+
+        $("#data_fix").html(data.fix);
+        switch (data.fix) {
+          case "1":
+            $("#data_fix").html("no fix");
+            break;
+          case "2":
+            $("#data_fix").html("2D fix");
+            break;
+          case "3":
+            $("#data_fix").html("3D fix");
+            break;
+        }
+        $("#data_quality").html(data.quality);
+        switch (data.quality) {
+          case "0":
+            $("#data_quality").html("invalid");
+            break;
+          case "1":
+            $("#data_quality").html("GPS fix (SPS)");
+            break;
+          case "2":
+            $("#data_quality").html("DGPS fix");
+            break;
+          case "3":
+            $("#data_quality").html("PPS fix");
+            break;
+          case "4":
+            $("#data_quality").html("Real Time Kinematic");
+            break;
+          case "5":
+            $("#data_quality").html("Float RTK");
+            break;
+          case "6":
+            $("#data_quality").html("estimated");
+            break;
+          case "7":
+            $("#data_quality").html("Manual input mode");
+            break;
+          case "8":
+            $("#data_quality").html("Simulation mode");
+            break;
+        }
+        $("#data_satellites").html(data.satellites);
+
+        $("#data_pdop").html(data.pdop);
+        $("#data_hdop").html(data.hdop);
+        $("#data_vdop").html(data.vdop);
+
+        latlng = new google.maps.LatLng(data.latitude[0], data.longitude[0]);
         map.panTo(latlng);
         marker.setPosition(latlng);
-      });
+        circle.setCenter(latlng);
+        circle.setRadius(data.pdop*10)
+      })
+      .error(function(request, error) { console.log(error); });
     }
 
     $(document).ready(function(){
@@ -47,6 +155,65 @@
 </head>
 <body>
   <div id="map_canvas" style="width:100%; height:100%"></div>
-  <div id="show_data" style="position:absolute;bottom:0;background:#eee;padding:10px;margin:0"></div>
+  <div id="data_hud">
+    <table>
+      <tr>
+        <td colspan="2" class="title">Date & Time</td>
+      </tr>
+      <tr>
+        <td>Date:</td>
+        <td id="data_date"></td>
+      </tr>
+      <tr>
+        <td>Time:</td>
+        <td id="data_time"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Position</td>
+      </tr>
+      <tr>
+        <td>Latitude:</td>
+        <td id="data_lat"></td>
+      </tr>
+      <tr>
+        <td>Longitude:</td>
+        <td id="data_lng"></td>
+      </tr>
+      <tr>
+        <td>Altitude:</td>
+        <td id="data_alt"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Fix</td>
+      </tr>
+      <tr>
+        <td>Fix:</td>
+        <td id="data_fix"></td>
+      </tr>
+      <tr>
+        <td>Quality:</td>
+        <td id="data_quality"></td>
+      </tr>
+      <tr>
+        <td>Satellites:</td>
+        <td id="data_satellites"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Dilution</td>
+      </tr>
+      <tr>
+        <td>Position:</td>
+        <td id="data_pdop"></td>
+      </tr>
+      <tr>
+        <td>Horizontal:</td>
+        <td id="data_hdop"></td>
+      </tr>
+      <tr>
+        <td>Vertical:</td>
+        <td id="data_vdop"></td>
+      </tr>
+    </table<
+  </div>
 </body>
 </html>
