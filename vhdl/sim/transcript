@@ -8,45 +8,19 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim work.clkdiv_tb_e
-# vsim work.clkdiv_tb_e 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiv_tb_e(clkdiv_tb_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-quit -sim
-vsim work.clkdiv_tb_e
-# vsim work.clkdiv_tb_e 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiv_tb_e(clkdiv_tb_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-quit -sim
-vsim work.clkdiv_tb_e
-# vsim work.clkdiv_tb_e 
+vsim work.cnt32_e
+# vsim work.cnt32_e 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
-# Loading work.clkdiv_tb_e(clkdiv_tb_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
+# Loading ieee.numeric_std(body)
+# Loading work.cnt32_e(cnt32_a)#1
+force -freeze sim:/cnt32_e/clk_i 0 0
+force -freeze sim:/cnt32_e/rst_i 0 0
+add list sim:/cnt32_e/*
+add wave sim:/cnt32_e/*
 run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {5 ns} -r 11
+force -freeze sim:/cnt32_e/clk_i 1 0, 0 {50 ns} -r 100
 run
 run
 run
@@ -57,338 +31,21 @@ run
 run
 run
 run
-run -all
-# Break key hit 
-# Simulation stop requested.
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {50 ns} -r 100
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {50 ns} -r 101
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-restart
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
 run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
 run
-run -all
-run -all
-run -all
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
+force -freeze sim:/cnt32_e/rst_i 1 0
 run
 run
-run -all
-# Break key hit 
-# Simulation stop requested.
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
 run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
 run
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
 run
 run
+force -freeze sim:/cnt32_e/rst_i 0 0
 run
 run
 run
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
 run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
 run
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run -all
-# Break key hit 
-# Simulation stop requested.
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-run
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-run -continue
-run -continue
-run -continue
-run -continue
-run -continue
-run -continue
-run -continue
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-run
-run -all
-# Break key hit 
-# Simulation stop requested.
-add wave sim:/clkdiffpulse_e/*
-run -all
-# Break key hit 
-# Simulation stop requested.
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-force -freeze sim:/clkdiffpulse_e/a_i 1 0, 0 {5 ns} -r 10
-force -freeze sim:/clkdiffpulse_e/b_i 1 0, 0 {52 ns} -r 105
-run
-run
-run
-run
-run
-run
-run
-run
-run -all
-# Break key hit 
-# Simulation stop requested.
-quit -sim
-vsim work.clkdiffpulse_e
-# vsim work.clkdiffpulse_e 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-quit -sim
-vsim -voptargs=+acc work.clkdiffpulse_e
-# vsim -voptargs=+acc work.clkdiffpulse_e 
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.clkdiffpulse_e(clkdiffpulse_a)#1
-# Loading work.clkdiv_e(sysclkdiv_a)#1
-# Loading work.clkdiv_e(extclkdiv_a)#1
-add wave sim:/clkdiffpulse_e/*
-force -freeze sim:/clkdiffpulse_e/rst_i 1 0
-run
-force -freeze sim:/clkdiffpulse_e/rst_i 0 0
-run
-force -freeze sim:/clkdiffpulse_e/t_s 1 0
-run
-run
-run
-run
-run
-run
-run
-noforce sim:/clkdiffpulse_e/t_s
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-quit -sim
-vcom -reportprogress 300 -work work /home/stud/wydlermi/stud/mixsig/diff/src/rising_edge.vhd
-# Model Technology ModelSim SE vcom 6.4d Compiler 2009.03 Mar 16 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Compiling entity rising_edge_e
-# -- Compiling architecture rising_edge_a of rising_edge_e
-# ** Error: /home/stud/wydlermi/stud/mixsig/diff/src/rising_edge.vhd(26): near "<=": expecting ';'
-# ** Error: /home/stud/wydlermi/stud/mixsig/diff/src/rising_edge.vhd(29): VHDL Compiler exiting
-vcom -reportprogress 300 -work work /home/stud/wydlermi/stud/mixsig/diff/src/rising_edge.vhd
-# Model Technology ModelSim SE vcom 6.4d Compiler 2009.03 Mar 16 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Compiling entity rising_edge_e
-# -- Compiling architecture rising_edge_a of rising_edge_e
-vsim -voptargs=+acc work.rising_edge_e
-# vsim -voptargs=+acc work.rising_edge_e 
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading work.rising_edge_e(rising_edge_a)#1
-add wave sim:/rising_edge_e/*
-force -freeze sim:/rising_edge_e/clk_i 1 0, 0 {50 ns} -r 100
-force -freeze sim:/rising_edge_e/rst_n_i 0 0
-force -freeze sim:/rising_edge_e/signal_i 0 0
-run
-run
-run
-force -freeze sim:/rising_edge_e/rst_n_i 1 0
-run
-run
-run
-run
-force -freeze sim:/rising_edge_e/signal_i 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-force -freeze sim:/rising_edge_e/signal_i 0 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-force -freeze sim:/rising_edge_e/signal_i 1 0
 run
 run
 run
