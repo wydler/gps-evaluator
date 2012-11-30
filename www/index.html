@@ -56,7 +56,7 @@
     function initialize() {
       var options = {
         zoom: 18,
-        center: new google.maps.LatLng( 50, 50 ),
+        center: new google.maps.LatLng(47.8142, 9.6523),
         mapTypeId: google.maps.MapTypeId.HYBRID
       };
       map = new google.maps.Map(document.getElementById("map_canvas"), options);
@@ -67,11 +67,11 @@
       });
 
       circle = new google.maps.Circle({
-        strokeColor: "#FF0000",
+        strokeColor: "#0033FF",
         strokeOpacity: 0.5,
         strokeWeight: 1,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
+        fillColor: "#0033FF",
+        fillOpacity: 0.25,
         map: map,
         center: new google.maps.LatLng( 50, 50 ),
         radius: 15
@@ -83,11 +83,17 @@
         console.log(data);
 
         $("#data_date").html(data.date);
-        $("#data_time").html(data.time);
+        $("#data_time").html(data.time + " UTC");
 
-        $("#data_lat").html(data.latitude[0] + "' " + data.latitude[1]);
-        $("#data_lng").html(data.longitude[0] + "' " + data.longitude[1]);
-        $("#data_alt").html(data.altitude[0] + " " + data.altitude[1]);
+        if (data.latitude[0] != 0) {
+          $("#data_lat").html(data.latitude[0] + "' " + data.latitude[1]);
+        }
+        if (data.longitude[0] != 0) {
+          $("#data_lng").html(data.longitude[0] + "' " + data.longitude[1]);
+        }
+        if (data.altitude[0] != 0) {
+          $("#data_alt").html(data.altitude[0] + " " + data.altitude[1]);
+        }
 
         $("#data_fix").html(data.fix);
         switch (data.fix) {
@@ -137,11 +143,13 @@
         $("#data_hdop").html(data.hdop);
         $("#data_vdop").html(data.vdop);
 
-        latlng = new google.maps.LatLng(data.latitude[0], data.longitude[0]);
-        map.panTo(latlng);
-        marker.setPosition(latlng);
+        if (data.latitude[0] != 0 && data.longitude[0] != 0) {
+          latlng = new google.maps.LatLng(data.latitude[0], data.longitude[0]);
+          map.panTo(latlng);
+          marker.setPosition(latlng);
+        }
         circle.setCenter(latlng);
-        circle.setRadius(data.pdop*10)
+        circle.setRadius(6*data.pdop);
       })
       .error(function(request, error) { console.log(error); });
     }
@@ -149,7 +157,7 @@
     $(document).ready(function(){
       initialize();
       update();
-      setInterval("update()", 1000);
+      setInterval("update()", 500);
     })
   </script>
 </head>
