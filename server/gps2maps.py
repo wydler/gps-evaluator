@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import serial
 import json
 import time
