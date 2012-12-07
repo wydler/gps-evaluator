@@ -6,6 +6,7 @@ entity cnt32_e is
 	port(
 		clk_i	: in	std_logic;
 		rst_i	: in	std_logic;
+		ena_i	: in	std_logic;
 		cnt_o	: out	std_logic_vector(31 downto 0)
 	);
 end cnt32_e;

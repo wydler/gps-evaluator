@@ -5,10 +5,10 @@ use IEEE.numeric_std.all;
 architecture zwh_shift64_a of zwh_shift64_e is
 	signal buf_s	: unsigned(63 downto 0);
 begin
-	process( rst_i, syn_i, sft_i )
+	process( rst_n_i, syn_i, sft_i )
 		variable buf_v : unsigned(63 downto 0);
 	begin
-		if rst_i = '1' then
+		if rst_n_i = '0' then
 			buf_s <= (others=>'0');
 			nxt_o <= (others=>'0');
 		elsif syn_i'event and syn_i = '1' then

@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 
 entity rising_edge_e is
 	port(clk_i    : in std_logic;
-             rst_n_i  : in std_logic;
-             signal_i : in std_logic;
+         rst_n_i  : in std_logic;
+         signal_i : in std_logic;
 	     rising_o : out std_logic);
 end rising_edge_e;
 
