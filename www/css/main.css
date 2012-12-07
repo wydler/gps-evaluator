@@ -1,0 +1,53 @@
+html { 
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+body { 
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+h3 {
+  padding: 0;
+}
+#map_canvas {
+  height: 100%;
+}
+#hud {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  color: #fff;
+  background: #333;
+  opacity: .9;
+  padding: 10px 30px 20px 30px;
+  margin: 0 0 20px 0;
+}
+#hud.data {
+  right: 0;
+}
+#hud table {
+  width: 100%;
+}
+#hud table td {
+  padding: 3px 10px 3px 0;
+}
+#hud table td.title {
+  padding: 20px 0 5px 0;
+  margin: 0 0 5px 0;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #666;
+}
+#hud form span {
+  vertical-align: middle;
+}
+#hud form input {
+  margin: 0;
+  vertical-align: middle;
+}
+#hud.options {
+  right: 260px;
+}

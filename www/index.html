@@ -2,158 +2,13 @@
 <html>
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <style type="text/css">
-    html { 
-      height: 100%;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-    }
-    body { 
-      height: 100%;
-      margin: 0px;
-      padding: 0px;
-    }
-    h3 {
-      padding: 0;
-    }
-    #map_canvas {
-      height: 100%;
-    }
-    #data_hud {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 200px;
-      color: #fff;
-      background: #333;
-      opacity: .9;
-      padding: 10px 30px 20px 30px;
-      margin: 0 0 20px 0;
-    }
-    #data_hud table {
-      width: 100%;
-    }
-    #data_hud table td {
-      padding: 3px 10px 3px 0;
-    }
-    #data_hud table td.title {
-      padding: 20px 0 5px 0;
-      margin: 0 0 5px 0;
-      font-size: 15px;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-bottom: 1px solid #666;
-    }
-  </style>
+  <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="css/main.css" />
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="js/colorpicker.js"></script>
+  <script type="text/javascript" src="js/parser.js"></script>
   <script type="text/javascript">
-    var map;
-    var marker;
-    var circle;
-    var latlng;
-
-    function initialize() {
-      var options = {
-        zoom: 18,
-        center: new google.maps.LatLng(47.8142, 9.6523),
-        mapTypeId: google.maps.MapTypeId.HYBRID
-      };
-      map = new google.maps.Map(document.getElementById("map_canvas"), options);
-
-      marker = new google.maps.Marker({
-        map: map,
-        animation: google.maps.Animation.DROP,
-      });
-
-      circle = new google.maps.Circle({
-        strokeColor: "#0033FF",
-        strokeOpacity: 0.5,
-        strokeWeight: 1,
-        fillColor: "#0033FF",
-        fillOpacity: 0.25,
-        map: map,
-        center: new google.maps.LatLng( 50, 50 ),
-        radius: 15
-      });
-    }
-
-    function update() {
-      $.getJSON('data.json', function(data) {
-        console.log(data);
-
-        $("#data_date").html(data.date);
-        $("#data_time").html(data.time + " UTC");
-
-        if (data.latitude[0] != 0) {
-          $("#data_lat").html(data.latitude[0] + "' " + data.latitude[1]);
-        }
-        if (data.longitude[0] != 0) {
-          $("#data_lng").html(data.longitude[0] + "' " + data.longitude[1]);
-        }
-        if (data.altitude[0] != 0) {
-          $("#data_alt").html(data.altitude[0] + " " + data.altitude[1]);
-        }
-
-        $("#data_fix").html(data.fix);
-        switch (data.fix) {
-          case "1":
-            $("#data_fix").html("no fix");
-            break;
-          case "2":
-            $("#data_fix").html("2D fix");
-            break;
-          case "3":
-            $("#data_fix").html("3D fix");
-            break;
-        }
-        $("#data_quality").html(data.quality);
-        switch (data.quality) {
-          case "0":
-            $("#data_quality").html("invalid");
-            break;
-          case "1":
-            $("#data_quality").html("GPS fix (SPS)");
-            break;
-          case "2":
-            $("#data_quality").html("DGPS fix");
-            break;
-          case "3":
-            $("#data_quality").html("PPS fix");
-            break;
-          case "4":
-            $("#data_quality").html("Real Time Kinematic");
-            break;
-          case "5":
-            $("#data_quality").html("Float RTK");
-            break;
-          case "6":
-            $("#data_quality").html("estimated");
-            break;
-          case "7":
-            $("#data_quality").html("Manual input mode");
-            break;
-          case "8":
-            $("#data_quality").html("Simulation mode");
-            break;
-        }
-        $("#data_satellites").html(data.satellites);
-
-        $("#data_pdop").html(data.pdop);
-        $("#data_hdop").html(data.hdop);
-        $("#data_vdop").html(data.vdop);
-
-        if (data.latitude[0] != 0 && data.longitude[0] != 0) {
-          latlng = new google.maps.LatLng(data.latitude[0], data.longitude[0]);
-          map.panTo(latlng);
-          marker.setPosition(latlng);
-        }
-        circle.setCenter(latlng);
-        circle.setRadius(6*data.pdop);
-      })
-      .error(function(request, error) { console.log(error); });
-    }
-
     $(document).ready(function(){
       initialize();
       update();
@@ -163,7 +18,7 @@
 </head>
 <body>
   <div id="map_canvas" style="width:100%; height:100%"></div>
-  <div id="data_hud">
+  <div id="hud" class="data">
     <table>
       <tr>
         <td colspan="2" class="title">Date & Time</td>
@@ -221,7 +76,25 @@
         <td>Vertical:</td>
         <td id="data_vdop"></td>
       </tr>
-    </table<
+    </table>
+  </div>
+  <div id="hud" class="options">
+    <table>
+      <tr>
+        <td colspan="2" class="title">Options</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <form>
+            <input type="checkbox" name="option" value="path" id="checkbox_path" checked /> 
+            <span>Pfad anzeigen? <a href="#" id="cp_path"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
+            <br />
+            <input type="checkbox" name="option" value="radius" id="checkbox_radius" checked /> 
+            <span>Radius anzeigen? <a href="#" id="cp_circle"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
+          </form>
+        </td>
+      </tr>
+    </table>
   </div>
 </body>
 </html>
