@@ -1,0 +1,203 @@
+Release 12.3 - xst M.70d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: evaluator_e.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "evaluator_e.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "evaluator_e"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : evaluator_e
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/gpsclksrc_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/tflipflop.vhd" in Library work.
+Architecture behave of Entity tff is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/rising_edge.vhd" in Library work.
+Architecture rising_edge_a of Entity rising_edge_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/falling_edge.vhd" in Library work.
+Architecture falling_edge_a of Entity falling_edge_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt32_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_e.vhd" in Library work.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/uart.vhd" in Library work.
+Architecture uarttx_a of Entity uarttx_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_a.vhd" in Library work.
+Architecture evaluator_a of Entity evaluator_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" in Library work.
+Entity <clkcntsrl_e> (Architecture <clkcntsrl_a>) compiled.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_a.vhd" in Library work.
+Architecture dualclkcnt_a of Entity dualclkcnt_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd" in Library work.
+Architecture zwh_shift64_a of Entity zwh_shift64_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt32_a.vhd" in Library work.
+Architecture cnt32_a of Entity cnt32_e is up to date.
+Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/gpsclksrc_a.vhd" in Library work.
+Architecture gpsclksrc_a of Entity gpsclksrc_e is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <evaluator_e> in library <work> (architecture <evaluator_a>).
+
+Analyzing hierarchy for entity <clkcntsrl_e> in library <work> (architecture <clkcntsrl_a>).
+
+Analyzing hierarchy for entity <uarttx_e> in library <work> (architecture <uarttx_a>) with generics.
+	txclkcount_g = 1
+
+Analyzing hierarchy for entity <dualclkcnt_e> in library <work> (architecture <dualclkcnt_a>).
+
+Analyzing hierarchy for entity <zwh_shift64_e> in library <work> (architecture <zwh_shift64_a>).
+
+Analyzing hierarchy for entity <gpsclksrc_e> in library <work> (architecture <gpsclksrc_a>).
+
+Analyzing hierarchy for entity <cnt32_e> in library <work> (architecture <cnt32_a>).
+
+Analyzing hierarchy for entity <tff> in library <work> (architecture <behave>).
+
+Analyzing hierarchy for entity <rising_edge_e> in library <work> (architecture <rising_edge_a>).
+
+Analyzing hierarchy for entity <falling_edge_e> in library <work> (architecture <falling_edge_a>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <evaluator_e> in library <work> (Architecture <evaluator_a>).
+Entity <evaluator_e> analyzed. Unit <evaluator_e> generated.
+
+Analyzing Entity <clkcntsrl_e> in library <work> (Architecture <clkcntsrl_a>).
+WARNING:Xst:819 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" line 50: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <sft_s>
+WARNING:Xst:819 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" line 67: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <sft_s>
+Entity <clkcntsrl_e> analyzed. Unit <clkcntsrl_e> generated.
+
+Analyzing Entity <dualclkcnt_e> in library <work> (Architecture <dualclkcnt_a>).
+Entity <dualclkcnt_e> analyzed. Unit <dualclkcnt_e> generated.
+
+Analyzing Entity <gpsclksrc_e> in library <work> (Architecture <gpsclksrc_a>).
+Entity <gpsclksrc_e> analyzed. Unit <gpsclksrc_e> generated.
+
+Analyzing Entity <tff> in library <work> (Architecture <behave>).
+Entity <tff> analyzed. Unit <tff> generated.
+
+Analyzing Entity <rising_edge_e> in library <work> (Architecture <rising_edge_a>).
+Entity <rising_edge_e> analyzed. Unit <rising_edge_e> generated.
+
+Analyzing Entity <falling_edge_e> in library <work> (Architecture <falling_edge_a>).
+Entity <falling_edge_e> analyzed. Unit <falling_edge_e> generated.
+
+Analyzing Entity <cnt32_e> in library <work> (Architecture <cnt32_a>).
+Entity <cnt32_e> analyzed. Unit <cnt32_e> generated.
+
+Analyzing Entity <zwh_shift64_e> in library <work> (Architecture <zwh_shift64_a>).
+ERROR:Xst:827 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd" line 8: Signal nxt_o cannot be synthesized, bad synchronous description. The description style you are using to describe a synchronous element (register, memory, etc.) is not supported in the current software release.
+--> 
+
+
+Total memory usage is 147600 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

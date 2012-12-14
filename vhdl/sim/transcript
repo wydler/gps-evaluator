@@ -8,79 +8,37 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim work.uarttx_e
-# vsim work.uarttx_e 
+vsim work.evaluator_e
+# vsim work.evaluator_e 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.evaluator_e(evaluator_a)#1
+# Loading work.clkcntsrl_e(clkcntsrl_a)#1
+# Loading work.dualclkcnt_e(dualclkcnt_a)#1
+# Loading work.gpsclksrc_e(gpsclksrc_a)#1
+# Loading work.tff(behave)#1
+# Loading work.rising_edge_e(rising_edge_a)#1
+# Loading work.falling_edge_e(falling_edge_a)#1
+# Loading work.cnt32_e(cnt32_a)#1
+# Loading work.zwh_shift64_e(zwh_shift64_a)#1
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.uarttx_e(uarttx_a)#1
-add wave sim:/uarttx_e/*
-force -freeze sim:/uarttx_e/rst_n_i 0 0
+add wave sim:/evaluator_e/*
+add wave \
+{sim:/evaluator_e/clkcntsrl/trg_o } 
+add wave \
+{sim:/evaluator_e/uarttx/thr_s } \
+{sim:/evaluator_e/uarttx/tsr_s } \
+{sim:/evaluator_e/uarttx/txclk_s } 
+force -freeze sim:/evaluator_e/clka_i 1 0, 0 {1 ns} -r 2
+force -freeze sim:/evaluator_e/clkb_i 1 0, 0 {2 ns} -r 4
+force -freeze sim:/evaluator_e/gps_i 1 0, 0 {5000 ns} -r 10000
+force -freeze sim:/evaluator_e/rst_n_i 0 0
 run
-force -freeze sim:/uarttx_e/clk_i 1 0, 0 {1 ns} -r 2
-run
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
-force -freeze sim:/uarttx_e/data_i 10101100 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-force -freeze sim:/uarttx_e/write_i 1 0
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
-noforce sim:/uarttx_e/rst_n_i
-force -freeze sim:/uarttx_e/rst_n_i 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-force -drive sim:/uarttx_e/write_i 1 0
-run
-run
-force -freeze sim:/uarttx_e/write_i 1 0 -cancel 1
-run
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
-run
-run
-run
-force -freeze sim:/uarttx_e/write_i 1 0
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
-force -freeze sim:/uarttx_e/write_i 1 0
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
-run
-run
-run
-run
-run
-run
-run
-force -freeze sim:/uarttx_e/write_i 1 0
-run
-force -freeze sim:/uarttx_e/write_i 0 0
-run
+force -freeze sim:/evaluator_e/rst_n_i 1 0
 run
 run
 run
