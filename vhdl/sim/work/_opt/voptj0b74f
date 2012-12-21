@@ -4,9 +4,9 @@ K3
 cModel Technology
 Z0 d/home/stud/wydlermi/stud/mixsig/diff/sim
 T_opt
-Z1 V:b>fCoGN^B?RdG]:VYcAV0
+Z1 VdgmbTUX:`[bW35QEb:XM]2
 Z2 04 11 11 work evaluator_e evaluator_a 1
-Z3 =1-002481216f15-50d43ce3-33735-bad
+Z3 =1-002481216f15-50d453eb-ca7e1-104c
 Z4 o-quiet -auto_acc_if_foreign -work work
 Z5 OE;O;6.4d;39
 T_opt1
@@ -23,8 +23,7 @@ R4
 R5
 Eclkcntsrl_e
 Z12 w1356085961
-Z13 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
-32
+Z13 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
 Z14 d/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim
 Z15 8../src/clkcntsrl_e.vhd
 Z16 F../src/clkcntsrl_e.vhd
@@ -32,6 +31,7 @@ l0
 L4
 Z17 VKZB7bNGYXOWF`YlBYL:DE3
 Z18 OE;C;6.4d;39
+32
 Z19 tExplicit 1
 Z20 !s100 [4OPDSO72<PlX3]0eS2Qc2
 Aclkcntsrl_a
@@ -42,21 +42,21 @@ Z24 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 13 zwh_shi
 Z25 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 12 dualclkcnt_e 0 22 Y<[lj`F^7^IYbKKUKaXom2
 Z26 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 11 clkcntsrl_e 0 22 KZB7bNGYXOWF`YlBYL:DE3
 Z27 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
-R13
+Z28 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
 32
-Z28 Mx2 17 __model_tech/ieee 14 std_logic_1164
-Z29 Mx1 17 __model_tech/ieee 11 numeric_std
-Z30 8../src/clkcntsrl_a.vhd
-Z31 F../src/clkcntsrl_a.vhd
+Z29 Mx2 17 __model_tech/ieee 14 std_logic_1164
+Z30 Mx1 17 __model_tech/ieee 11 numeric_std
+Z31 8../src/clkcntsrl_a.vhd
+Z32 F../src/clkcntsrl_a.vhd
 l46
 L5
-Z32 VoUc_lAb_[cb6;;e06OTP30
+Z33 VoUc_lAb_[cb6;;e06OTP30
 R18
 R19
-Z33 !s100 dQKF>C931RB4h=BbJ;bhb1
+Z34 !s100 dQKF>C931RB4h=BbJ;bhb1
 Eclkdiffpulse_e
-Z34 w1352459306
-Z35 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z35 w1352459306
+R13
 Z36 8../src/clkdiffpulse_e.vhd
 Z37 F../src/clkdiffpulse_e.vhd
 l0
@@ -69,7 +69,7 @@ Z39 !s100 _Li8153UiBJhEQb1=HZLI1
 Aclkdiffpulse_a
 Z40 w1352461000
 Z41 DEx4 work 8 clkdiv_e 0 22 WkN:YE[HTOEYUME@M57dO1
-R35
+R13
 Z42 DEx4 work 14 clkdiffpulse_e 0 22 CnbShH:[OEJ07BTag7VfQ2
 Z43 8../src/clkdiffpulse_a.vhd
 Z44 F../src/clkdiffpulse_a.vhd
@@ -83,7 +83,7 @@ R19
 Z47 !s100 LkLUTX0PX5TcngTBWkV6K0
 Eclkdiv_e
 Z48 w1352454562
-R35
+R13
 Z49 8../src/clkdiv_e.vhd
 Z50 F../src/clkdiv_e.vhd
 l0
@@ -95,7 +95,7 @@ R19
 Z52 !s100 FhmgeSTi[2;_MzN=>k2F>3
 Aextclkdiv_a
 Z53 w1352458581
-R35
+R13
 R41
 Z54 8../src/clkdiv_a.vhd
 Z55 F../src/clkdiv_a.vhd
@@ -109,7 +109,7 @@ R19
 Z57 !s100 z<41iTb?RG634Ch5jI2bo0
 Asysclkdiv_a
 R53
-R35
+R13
 R41
 R54
 R55
@@ -123,7 +123,7 @@ R19
 Z59 !s100 7hT@:2KIJZ]JOfZQcWi9z0
 Eclkdiv_tb_e
 Z60 w1352458720
-R35
+R13
 Z61 8../tb/clkdiv_tb.vhd
 Z62 F../tb/clkdiv_tb.vhd
 l0
@@ -135,7 +135,7 @@ R19
 Z64 !s100 5U?bZOlV<gNGigMPG<K133
 Aclkdiv_tb_a
 R41
-R35
+R13
 Z65 DEx4 work 11 clkdiv_tb_e 0 22 7ha91P7e3MooeJfn@36AB1
 l19
 L7
@@ -148,7 +148,7 @@ Z67 !s100 ;0_:R>caER^OmCgYW]:Pg2
 Ecnt32_e
 Z68 w1354266780
 Z69 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
-R35
+R13
 R14
 Z70 8../src/cnt32_e.vhd
 Z71 F../src/cnt32_e.vhd
@@ -163,10 +163,10 @@ Acnt32_a
 Z74 w1354267079
 Z75 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 7 cnt32_e 0 22 Q1MI8InZc<k=]bH8j6_PR1
 R27
-R13
-32
 R28
+32
 R29
+R30
 Z76 8../src/cnt32_a.vhd
 Z77 F../src/cnt32_a.vhd
 l6
@@ -177,7 +177,7 @@ R19
 Z79 !s100 ^9PG0h1N3K[GYeBaoHfT@0
 Edualclkcnt_e
 Z80 w1354274702
-R35
+R13
 R14
 Z81 8../src/dualclkcnt_e.vhd
 Z82 F../src/dualclkcnt_e.vhd
@@ -192,7 +192,7 @@ Adualclkcnt_a
 Z85 w1354275905
 R75
 Z86 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 11 gpsclksrc_e 0 22 ;og3Y7V>M?PMP9Tn3MUM73
-R13
+R28
 R25
 32
 Z87 Mx1 17 __model_tech/ieee 14 std_logic_1164
@@ -205,40 +205,40 @@ R18
 R19
 Z91 !s100 c2V_eafAdCZzJ^gHh;[9f0
 Eevaluator_e
-Z92 w1354872781
-R27
+Z92 w1356087451
+R69
 R13
-32
 R14
 Z93 8../src/evaluator_e.vhd
 Z94 F../src/evaluator_e.vhd
 l0
 L5
-Z95 VQTeX2dbW<W7Z73LKz[eKi1
+Z95 Vz[zJK4T:_UKo7ee8`fZ`90
 R18
-R19
-Z96 !s100 [zUCI4hbC9]2GBD4T]aLK3
-Aevaluator_a
-Z97 w1356085010
-Z98 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 8 uarttx_e 0 22 DjT^TkRlKISYCgehO@M3^2
-R26
-Z99 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 11 evaluator_e 0 22 QTeX2dbW<W7Z73LKz[eKi1
-R27
-R13
 32
+R19
+Z96 !s100 J?>A32LjM0Wo[FcbFAbHX0
+Aevaluator_a
+Z97 w1356087490
+Z98 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 8 uarttx_e 0 22 o1_oTB01IH2>`FTSb2Ama2
+R26
+Z99 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 11 evaluator_e 0 22 z[zJK4T:_UKo7ee8`fZ`90
+R27
 R28
+32
 R29
+R30
 Z100 8../src/evaluator_a.vhd
 Z101 F../src/evaluator_a.vhd
 l42
 L5
-Z102 ViPf0d^zhVe92BCG`8IO363
-Z103 !s100 nenLO@KkknMn2?dDcO6L42
+Z102 V;D96@j?U0ihaDn9GTlP]O1
+Z103 !s100 iXJh;AIYKhQO9FRdXU5k[1
 R18
 R19
 Efalling_edge_e
 Z104 w1354280771
-R35
+R13
 R14
 Z105 8../src/falling_edge.vhd
 Z106 F../src/falling_edge.vhd
@@ -250,7 +250,7 @@ R18
 R19
 Z108 !s100 hhG2j?TjI<>ZV=@Eb?3UH3
 Afalling_edge_a
-R13
+R28
 R22
 32
 R87
@@ -263,7 +263,7 @@ Z110 !s100 ^B?PmW^6HI`J;IYHaRN;l3
 Egpsclksrc_e
 Z111 w1354272088
 R69
-R35
+R13
 R14
 Z112 8../src/gpsclksrc_e.vhd
 Z113 F../src/gpsclksrc_e.vhd
@@ -281,10 +281,10 @@ R23
 Z117 DEx59 /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/sim/work 3 tff 0 22 f9]4ckE>Yg4H5R]JazBCH3
 R86
 R27
-R13
-32
 R28
+32
 R29
+R30
 Z118 8../src/gpsclksrc_a.vhd
 Z119 F../src/gpsclksrc_a.vhd
 l25
@@ -295,7 +295,7 @@ R19
 Z121 !s100 eg2M2W1[z;j^27hJLo[KA2
 Erising_edge_e
 Z122 w1356081808
-R35
+R13
 R14
 Z123 8../src/rising_edge.vhd
 Z124 F../src/rising_edge.vhd
@@ -307,7 +307,7 @@ R18
 R19
 Z126 !s100 IVV=h`LUk;WkMMC73oOMl0
 Arising_edge_a
-R13
+R28
 R23
 32
 R87
@@ -320,7 +320,7 @@ Z128 !s100 fVgDNmQ^WK@R24[Y_]kRh3
 Z129 w1354280231
 Etff
 Z130 w1354272161
-R35
+R13
 R14
 Z131 8../src/tflipflop.vhd
 Z132 F../src/tflipflop.vhd
@@ -332,7 +332,7 @@ R18
 R19
 Z134 !s100 HA?7S^cm?jliNIBN;EHOl0
 Abehave
-R13
+R28
 R117
 32
 R87
@@ -343,24 +343,24 @@ R18
 R19
 Z136 !s100 g;??adnd]i9^^ViKKjWGW1
 Euarttx_e
-Z137 w1356083397
+Z137 w1356092198
 Z138 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
 Z139 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
-R35
+R13
 R14
 Z140 8../src/uart.vhd
 Z141 F../src/uart.vhd
 l0
 L5
-Z142 VDjT^TkRlKISYCgehO@M3^2
+Z142 Vo1_oTB01IH2>`FTSb2Ama2
 R18
 32
 R19
-Z143 !s100 D3:fn5mMN2^3_2fh[4O7M0
+Z143 !s100 5LmJXFL>CM8_bRWbaD4@z1
 Auarttx_a
 Z144 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
 Z145 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
-R13
+R28
 R98
 32
 Z146 Mx3 17 __model_tech/ieee 14 std_logic_1164
@@ -368,14 +368,14 @@ Z147 Mx2 17 __model_tech/ieee 18 std_logic_unsigned
 Z148 Mx1 17 __model_tech/ieee 15 std_logic_arith
 l28
 L17
-Z149 VoCOJQ2z3VAR`CPEF8BNi51
+Z149 VKLcafe<`2nCC7gRgj`Ngj2
 R18
 R19
-Z150 !s100 K;L[S^j]5V]MjlLLzICBz0
+Z150 !s100 2e0LV5VJ@DGVloAocj1?<0
 Ezwh_shift64_e
 Z151 w1356081899
 R69
-R35
+R13
 R14
 Z152 8../src/zwh_shift64_e.vhd
 Z153 F../src/zwh_shift64_e.vhd
@@ -391,10 +391,10 @@ Z156 w1356084126
 R23
 R24
 R27
-R13
-32
 R28
+32
 R29
+R30
 Z157 8../src/zwh_shift64_a.vhd
 Z158 F../src/zwh_shift64_a.vhd
 l18

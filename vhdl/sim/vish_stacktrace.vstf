@@ -1,0 +1,19 @@
+# Current time Fri Dec 21 13:26:43 2012
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.4d"
+# Version = "2009.03"
+# Date = "Mar 16 2009"
+# Platform = linux
+# 0    0x081530a0: 'treew_TriggerEventQ + 0x40' in '/opt/modeltech/bin/../linux/vish'
+# 1    0x08108b33: 'name_ValueCancelPendingEvents + 0xb3' in '/opt/modeltech/bin/../linux/vish'
+# 2    0x08357680: 'TclServiceIdle + 0x50' in '/opt/modeltech/bin/../linux/vish'
+# 3    0x0834a169: 'Tcl_DoOneEvent + 0x165' in '/opt/modeltech/bin/../linux/vish'
+# 4    0x0827a40e: 'Tk_MainLoop + 0x22' in '/opt/modeltech/bin/../linux/vish'
+# 5    0x0828129f: 'Tk_MainEx + 0x303' in '/opt/modeltech/bin/../linux/vish'
+# 6    0x0813c1b8: 'vish_inner_loop + 0x238' in '/opt/modeltech/bin/../linux/vish'
+# 7    0x0813cd42: 'main + 0x6f2' in '/opt/modeltech/bin/../linux/vish'
+# 8    0x00358e31: '<unknown (@0x358e31)>'
+# 9    0x080af64c: 'start + 0x1c' in '/opt/modeltech/bin/../linux/vish'
+# End of Stack Trace
+

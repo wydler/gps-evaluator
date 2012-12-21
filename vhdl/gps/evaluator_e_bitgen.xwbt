@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.ncd
+OUTFILE=/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps
+LICENSE=WebPack
+USER_INFO=177743527_0_212

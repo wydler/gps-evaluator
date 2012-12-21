@@ -1,0 +1,17 @@
+//! **************************************************************************
+// Written by: Map M.70d on Fri Dec 21 13:25:47 2012
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rst_n_i" LOCATE = SITE "L13" LEVEL 1;
+COMP "led_o" LOCATE = SITE "F12" LEVEL 1;
+COMP "gps_i" LOCATE = SITE "D7" LEVEL 1;
+PIN gps_i_pin<0> = BEL "gps_i" PINNAME PAD;
+PIN "gps_i_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "clka_i" LOCATE = SITE "C9" LEVEL 1;
+COMP "clkb_i" LOCATE = SITE "B8" LEVEL 1;
+COMP "tx_o" LOCATE = SITE "M14" LEVEL 1;
+NET "clka_i_BUFGP/IBUFG" BEL "clka_i_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "clkb_i_BUFGP/IBUFG" BEL "clkb_i_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

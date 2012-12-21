@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity uarttx_e is
-	generic (txclkcount_g : positive := 1);	-- Number of bits for the count in the clock divider (default = 3 for clk/16)
+--	generic (txclkcount_g : positive := 13);	-- Number of bits for the count in the clock divider (default = 3 for clk/16)
 	port(
 		clk_i	: in std_logic;
 		write_i	: in std_logic;
@@ -24,7 +24,7 @@ architecture uarttx_a of uarttx_e is
 	signal txclk_s : std_logic;
 	signal paritycycle_s : std_logic;
 	signal txdatardy_s : std_logic;
-	signal cnt_s : std_logic_vector( txclkcount_g-1 downto 0 );
+--	signal cnt_s : std_logic_vector( txclkcount_g-1 downto 0 );
 begin
    
 -- Paritycycle = 1 on next to last cycle, this means when tsr[1] gets tag2.
@@ -52,17 +52,21 @@ txrdy_o <= not txdatardy_s;
 --// Toggle txclk every 2^txclkcount counts, which divides the clock by
 --// 2*2^txclkcount, to generate the baud clock
 	baud_clock_gen : process( clk_i, rst_n_i )
-		variable count_indicator: std_logic_vector( txclkcount_g-1 downto 0 );
+		variable cnt_is : integer range 11000 downto 0;
+--		variable count_indicator: std_logic_vector( txclkcount_g-1 downto 0 );
 	begin
-		count_indicator := ( others => '0' );
+--		count_indicator := ( others => '0' );
 		if( rst_n_i ='0' ) then
 			txclk_s <= '0';
-			cnt_s <= (others => '0');
+			cnt_is := 0;
 		elsif( clk_i='1' and clk_i'event ) then
-			if( cnt_s = count_indicator) then
-				txclk_s <= not txclk_s;
+			if( cnt_is >= 5208) then
+				txclk_s <= '1';
+				cnt_is := 0;
+			else
+				txclk_s <= '0';
+				cnt_is := cnt_is + 1;
 			end if;
-			cnt_s <= cnt_s + 1;
 		end if;
 	end process;
 

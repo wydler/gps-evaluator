@@ -62,6 +62,7 @@ begin
 --		txrdy_o	=> sft_s
 	);
 	
+	led_o <= gps_i;
 	process( txrdy_s, trg_s, clka_i, rst_n_i )
 	begin
 		if rst_n_i = '0' then

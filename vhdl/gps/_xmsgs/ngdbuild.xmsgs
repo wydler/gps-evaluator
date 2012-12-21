@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_clka_i = PERIOD &quot;clka_i&quot; 20 ns HIGH 40%;&gt; [/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf(2)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TNM&apos; or &apos;TimeGrp&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clka_i</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="old" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_clkb_i = PERIOD &quot;clkb_i&quot; 100 ns HIGH 40%;&gt; [/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf(4)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TNM&apos; or &apos;TimeGrp&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clkb_i</arg>&apos;.
+</msg>
+
+</messages>
+

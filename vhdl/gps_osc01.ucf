@@ -1,0 +1,31 @@
+NET "clka_i"       LOC = "C9"   |IOSTANDARD = LVCMOS33 ;
+TIMESPEC TS_clka_i = PERIOD "clka_i" 20 ns HIGH 40%;
+NET "clkb_i"       LOC = "B8"   |IOSTANDARD = LVCMOS33 ;
+TIMESPEC TS_clkb_i = PERIOD "clkb_i" 100 ns HIGH 40%;
+NET "rst_n_i"     LOC = "L13"  |IOSTANDARD = LVTTL    |PULLUP;
+NET "gps_i"    LOC = "D7"   |IOSTANDARD = LVTTL   |SLEW = SLOW |DRIVE = 6;
+NET "gps_i" CLOCK_DEDICATED_ROUTE = FALSE;
+#NET "led_o"    LOC = "C7"   |IOSTANDARD = LVTTL   |SLEW = SLOW |DRIVE = 6;
+NET "tx_o"        LOC = "M14"  |IOSTANDARD = LVTTL    |SLEW = SLOW |DRIVE = 8;
+#Flash disable
+#NET "dis_flash_o" LOC = "D16"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#LCD
+#NET "e_o"         LOC = "M18"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#NET "rs_o"        LOC = "L18"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#NET "rw_o"        LOC = "L17"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+# The LCD four-bit data interface is shared with the StrataFlash.
+#NET "data_o<0>"   LOC = "R15"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#NET "data_o<1>"   LOC = "R16"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#NET "data_o<2>"   LOC = "P17"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#NET "data_o<3>"   LOC = "M15"  |IOSTANDARD = LVCMOS33 |DRIVE = 4   |SLEW = SLOW ;
+#Created by Constraints Editor (xc3s500e-fg320-5) - 2012/05/10
+#NET "clk_i" TNM_NET = clk_i;
+
+NET "led_o" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "sat_signal_o" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<2>" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<3>" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<4>" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<5>" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<6>" LOC = "E9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+#NET "leds_o<7>" LOC = "F9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;

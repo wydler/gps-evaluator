@@ -118,18 +118,18 @@ Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt3
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_e.vhd" in Library work.
-Entity <clkcntsrl_e> compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/uart.vhd" in Library work.
-Architecture uarttx_a of Entity uarttx_e is up to date.
+Entity <uarttx_e> compiled.
+Entity <uarttx_e> (Architecture <uarttx_a>) compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_a.vhd" in Library work.
-Entity <evaluator_e> (Architecture <evaluator_a>) compiled.
+Architecture evaluator_a of Entity evaluator_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" in Library work.
-Entity <clkcntsrl_e> (Architecture <clkcntsrl_a>) compiled.
+Architecture clkcntsrl_a of Entity clkcntsrl_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_a.vhd" in Library work.
 Architecture dualclkcnt_a of Entity dualclkcnt_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd" in Library work.
-Entity <zwh_shift64_e> (Architecture <zwh_shift64_a>) compiled.
+Architecture zwh_shift64_a of Entity zwh_shift64_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt32_a.vhd" in Library work.
 Architecture cnt32_a of Entity cnt32_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/gpsclksrc_a.vhd" in Library work.
@@ -142,8 +142,7 @@ Analyzing hierarchy for entity <evaluator_e> in library <work> (architecture <ev
 
 Analyzing hierarchy for entity <clkcntsrl_e> in library <work> (architecture <clkcntsrl_a>).
 
-Analyzing hierarchy for entity <uarttx_e> in library <work> (architecture <uarttx_a>) with generics.
-	txclkcount_g = 1
+Analyzing hierarchy for entity <uarttx_e> in library <work> (architecture <uarttx_a>).
 
 Analyzing hierarchy for entity <dualclkcnt_e> in library <work> (architecture <dualclkcnt_a>).
 
@@ -194,8 +193,7 @@ Entity <rising_edge_e> analyzed. Unit <rising_edge_e> generated.
 Analyzing Entity <falling_edge_e> in library <work> (Architecture <falling_edge_a>).
 Entity <falling_edge_e> analyzed. Unit <falling_edge_e> generated.
 
-Analyzing generic Entity <uarttx_e> in library <work> (Architecture <uarttx_a>).
-	txclkcount_g = 1
+Analyzing Entity <uarttx_e> in library <work> (Architecture <uarttx_a>).
 Entity <uarttx_e> analyzed. Unit <uarttx_e> generated.
 
 
@@ -208,7 +206,8 @@ Performing bidirectional port resolution...
 Synthesizing Unit <uarttx_e>.
     Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/uart.vhd".
     Found 1-bit register for signal <tx_o>.
-    Found T flip-flop for signal <cnt_s<0>>.
+    Found 14-bit up counter for signal <cnt_is>.
+    Found 14-bit comparator greatequal for signal <cnt_is$cmp_ge0000> created at line 63.
     Found 1-bit register for signal <tag1_s>.
     Found 1-bit register for signal <tag2_s>.
     Found 8-bit register for signal <thr_s>.
@@ -217,12 +216,13 @@ Synthesizing Unit <uarttx_e>.
     Found 1-bit register for signal <txdatardy_s>.
     Found 1-bit register for signal <txdone1_s>.
     Found 1-bit register for signal <txparity_s>.
-    Found 1-bit xor2 for signal <txparity_s$xor0000> created at line 92.
+    Found 1-bit xor2 for signal <txparity_s$xor0000> created at line 96.
     Found 1-bit register for signal <write1_s>.
     Found 1-bit register for signal <write2_s>.
     Summary:
-	inferred   1 T-type flip-flop(s).
+	inferred   1 Counter(s).
 	inferred  25 D-type flip-flop(s).
+	inferred   1 Comparator(s).
 Unit <uarttx_e> synthesized.
 
 
@@ -304,15 +304,15 @@ Unit <evaluator_e> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 3
+# Counters                                             : 4
+ 14-bit up counter                                     : 1
  32-bit up counter                                     : 2
  9-bit up counter                                      : 1
 # Registers                                            : 100
  1-bit register                                        : 98
  8-bit register                                        : 2
-# Toggle Registers                                     : 1
- T flip-flop                                           : 1
-# Comparators                                          : 2
+# Comparators                                          : 3
+ 14-bit comparator greatequal                          : 1
  9-bit comparator greater                              : 1
  9-bit comparator less                                 : 1
 # Xors                                                 : 1
@@ -329,12 +329,14 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 3
+# Counters                                             : 4
+ 14-bit up counter                                     : 1
  32-bit up counter                                     : 2
  9-bit up counter                                      : 1
-# Registers                                            : 115
- Flip-Flops                                            : 115
-# Comparators                                          : 2
+# Registers                                            : 114
+ Flip-Flops                                            : 114
+# Comparators                                          : 3
+ 14-bit comparator greatequal                          : 1
  9-bit comparator greater                              : 1
  9-bit comparator less                                 : 1
 # Xors                                                 : 1
@@ -366,8 +368,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 186
- Flip-Flops                                            : 186
+# Registers                                            : 199
+ Flip-Flops                                            : 199
 
 =========================================================================
 
@@ -393,38 +395,39 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 5
+# IOs                              : 6
 
 Cell Usage :
-# BELS                             : 363
+# BELS                             : 419
 #      GND                         : 1
-#      INV                         : 6
-#      LUT1                        : 62
-#      LUT2                        : 8
+#      INV                         : 8
+#      LUT1                        : 65
+#      LUT2                        : 9
 #      LUT2_D                      : 1
 #      LUT2_L                      : 2
-#      LUT3                        : 18
+#      LUT3                        : 33
 #      LUT3_D                      : 1
 #      LUT3_L                      : 2
 #      LUT4                        : 113
 #      LUT4_D                      : 3
 #      LUT4_L                      : 1
-#      MUXCY                       : 70
+#      MUXCY                       : 91
 #      MUXF5                       : 1
 #      VCC                         : 1
-#      XORCY                       : 73
-# FlipFlops/Latches                : 186
-#      FDC                         : 28
+#      XORCY                       : 87
+# FlipFlops/Latches                : 199
+#      FDC                         : 42
 #      FDC_1                       : 4
-#      FDCE                        : 132
+#      FDCE                        : 131
 #      FDE                         : 8
 #      FDP                         : 4
 #      FDPE                        : 10
 # Clock Buffers                    : 3
-#      BUFGP                       : 3
-# IO Buffers                       : 2
-#      IBUF                        : 1
-#      OBUF                        : 1
+#      BUFG                        : 1
+#      BUFGP                       : 2
+# IO Buffers                       : 4
+#      IBUF                        : 2
+#      OBUF                        : 2
 =========================================================================
 
 Device utilization summary:
@@ -432,11 +435,11 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-5 
 
- Number of Slices:                      117  out of   4656     2%  
- Number of Slice Flip Flops:            186  out of   9312     1%  
- Number of 4 input LUTs:                217  out of   9312     2%  
- Number of IOs:                           5
- Number of bonded IOBs:                   5  out of    232     2%  
+ Number of Slices:                      128  out of   4656     2%  
+ Number of Slice Flip Flops:            199  out of   9312     2%  
+ Number of 4 input LUTs:                238  out of   9312     2%  
+ Number of IOs:                           6
+ Number of bonded IOBs:                   6  out of    232     2%  
  Number of GCLKs:                         3  out of     24    12%  
 
 ---------------------------
@@ -460,21 +463,21 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clka_i                             | BUFGP                  | 141   |
+clka_i                             | BUFGP                  | 154   |
 uarttx/txclk_s                     | NONE(uarttx/tx_o)      | 12    |
 clkb_i                             | BUFGP                  | 32    |
-gps_i                              | BUFGP                  | 1     |
+gps_i                              | IBUF+BUFG              | 1     |
 -----------------------------------+------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
-Control Signal                                                                           | Buffer(FF name)                                                | Load  |
------------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
-clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/rst_n_i_inv(uarttx/cnt_s_0_Aclr_inv1_INV_0:O)| NONE(clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/delay_sig_s_0)| 114   |
-clkcntsrl/dualclkcnt/glbcntrst_s(clkcntsrl/dualclkcnt/glbcntrst_s1:O)                    | NONE(clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_0)            | 64    |
------------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+Control Signal                                                                      | Buffer(FF name)                                                | Load  |
+------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/rst_n_i_inv(uarttx/rst_n_i_inv1_INV_0:O)| NONE(clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/delay_sig_s_0)| 127   |
+clkcntsrl/dualclkcnt/glbcntrst_s(clkcntsrl/dualclkcnt/glbcntrst_s1:O)               | NONE(clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_0)            | 64    |
+------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
@@ -483,7 +486,7 @@ Speed Grade: -5
    Minimum period: 7.872ns (Maximum Frequency: 127.041MHz)
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: 4.040ns
-   Maximum combinational path delay: No path found
+   Maximum combinational path delay: 4.655ns
 
 Timing Detail:
 --------------
@@ -492,7 +495,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clka_i'
   Clock period: 7.872ns (frequency: 127.041MHz)
-  Total number of paths / destination ports: 3110 / 224
+  Total number of paths / destination ports: 4532 / 236
 -------------------------------------------------------------------------
 Delay:               3.936ns (Levels of Logic = 2)
   Source:            clkcntsrl/sft_falling_edge/delay_sig_s_0 (FF)
@@ -631,15 +634,33 @@ Offset:              4.040ns (Levels of Logic = 1)
                                        (91.2% logic, 8.8% route)
 
 =========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               4.655ns (Levels of Logic = 2)
+  Source:            gps_i (PAD)
+  Destination:       led_o (PAD)
+
+  Data Path: gps_i to led_o
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.106   0.380  gps_i_IBUF (led_o_OBUF1)
+     OBUF:I->O                 3.169          led_o_OBUF (led_o)
+    ----------------------------------------
+    Total                      4.655ns (4.275ns logic, 0.380ns route)
+                                       (91.8% logic, 8.2% route)
+
+=========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.74 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 4.98 secs
  
 --> 
 
 
-Total memory usage is 153596 kilobytes
+Total memory usage is 153784 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

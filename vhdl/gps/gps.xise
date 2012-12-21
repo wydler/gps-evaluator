@@ -87,6 +87,9 @@
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
+    <file xil_pn:name="../gps_osc01.ucf" xil_pn:type="FILE_UCF">
+      <association xil_pn:name="Implementation"/>
+    </file>
   </files>
 
   <properties>
@@ -378,7 +381,9 @@
     <property xil_pn:name="PROP_intWorkingDirUsed" xil_pn:value="No" xil_pn:valueState="non-default"/>
   </properties>
 
-  <bindings/>
+  <bindings>
+    <binding xil_pn:location="/evaluator_e" xil_pn:name="../gps_osc01.ucf"/>
+  </bindings>
 
   <libraries/>
 

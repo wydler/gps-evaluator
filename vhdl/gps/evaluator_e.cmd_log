@@ -20,3 +20,38 @@ xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/e
 xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
 xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
 xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+bitgen -intstyle ise -f evaluator_e.ut evaluator_e.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+bitgen -intstyle ise -f evaluator_e.ut evaluator_e.ncd 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+bitgen -intstyle ise -f evaluator_e.ut evaluator_e.ncd 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+bitgen -intstyle ise -f evaluator_e.ut evaluator_e.ncd 
+xst -intstyle ise -ifn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.xst" -ofn "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/evaluator_e.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc /home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps_osc01.ucf -p xc3s500e-fg320-5 evaluator_e.ngc evaluator_e.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o evaluator_e_map.ncd evaluator_e.ngd evaluator_e.pcf 
+par -w -intstyle ise -ol high -t 1 evaluator_e_map.ncd evaluator_e.ncd evaluator_e.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml evaluator_e.twx evaluator_e.ncd -o evaluator_e.twr evaluator_e.pcf 
+bitgen -intstyle ise -f evaluator_e.ut evaluator_e.ncd 

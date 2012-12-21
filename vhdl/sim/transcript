@@ -35,10 +35,65 @@ add wave \
 {sim:/evaluator_e/uarttx/txclk_s } 
 force -freeze sim:/evaluator_e/clka_i 1 0, 0 {1 ns} -r 2
 force -freeze sim:/evaluator_e/clkb_i 1 0, 0 {2 ns} -r 4
-force -freeze sim:/evaluator_e/gps_i 1 0, 0 {5000 ns} -r 10000
+force -freeze sim:/evaluator_e/gps_i 1 0, 0 {50000 ns} -r 100000
 force -freeze sim:/evaluator_e/rst_n_i 0 0
 run
 force -freeze sim:/evaluator_e/rst_n_i 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
 run
 run
 run

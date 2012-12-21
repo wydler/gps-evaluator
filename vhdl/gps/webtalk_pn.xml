@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Fri Dec 21 11:43:46 2012">
+<application name="pn" timeStamp="Fri Dec 21 13:26:16 2012">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="F8437791DC5E03BA8FBA1A0DF27FCEB6" type="project"/>
-<property name="ProjectIteration" value="0" type="project"/>
+<property name="ProjectIteration" value="5" type="project"/>
 <property name="ProjectFile" value="/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/gps.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2012-12-14T12:43:11" type="project"/>
 </section>
@@ -25,6 +25,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2012-12-14T12:43:11" type="design"/>
 <property name="PROP_intWbtProjectID" value="F8437791DC5E03BA8FBA1A0DF27FCEB6" type="design"/>
+<property name="PROP_intWbtProjectIteration" value="5" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_selectedSimRootSourceNode_behav" value="work.evaluator_e" type="process"/>
@@ -36,6 +37,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_Synthesis_Tool" value="XST (VHDL/Verilog)" type="design"/>
 <property name="PROP_DevSpeed" value="-5" type="design"/>
 <property name="PROP_PreferredLanguage" value="VHDL" type="design"/>
+<property name="FILE_UCF" value="1" type="source"/>
 <property name="FILE_VHDL" value="18" type="source"/>
 </section>
 </application>

@@ -1,0 +1,8 @@
+Release 12.3 Drc M.70d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Fri Dec 21 13:26:18 2012
+
+drc -z evaluator_e.ncd evaluator_e.pcf
+
+DRC detected 0 errors and 0 warnings.

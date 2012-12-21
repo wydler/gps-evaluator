@@ -23,31 +23,67 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="cnt32_e.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="cnt32_e.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="cnt32_e.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="evaluator_e.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="evaluator_e.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="evaluator_e.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="evaluator_e.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="evaluator_e.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="evaluator_e.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="evaluator_e.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="evaluator_e.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="evaluator_e.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="evaluator_e.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="evaluator_e.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="evaluator_e.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="evaluator_e.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="evaluator_e.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="evaluator_e.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="evaluator_e.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="evaluator_e.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="evaluator_e.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="evaluator_e.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="evaluator_e.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="evaluator_e.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="evaluator_e.xst"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="evaluator_e_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="evaluator_e_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="evaluator_e_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="evaluator_e_isim_beh.wdb"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="evaluator_e_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="evaluator_e_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="evaluator_e_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="evaluator_e_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="evaluator_e_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="evaluator_e_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="evaluator_e_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="evaluator_e_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="evaluator_e_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="evaluator_e_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="evaluator_e_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="evaluator_e_usage.xml"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="evaluator_e_xst.xrpt"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
@@ -173,9 +209,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1356086635" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2949019565579889686" xil_pn:start_ts="1356086625">
+    <transform xil_pn:end_ts="1356092729" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2949019565579889686" xil_pn:start_ts="1356092719">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="evaluator_e.lso"/>
@@ -189,6 +227,70 @@
       <outfile xil_pn:name="evaluator_e_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092738" xil_pn:in_ck="-2977744763709901114" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-4631481456536111867" xil_pn:start_ts="1356092738">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092743" xil_pn:in_ck="-2175253958805660669" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="5262858728189380710" xil_pn:start_ts="1356092738">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="evaluator_e.bld"/>
+      <outfile xil_pn:name="evaluator_e.ngd"/>
+      <outfile xil_pn:name="evaluator_e_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092749" xil_pn:in_ck="-2175253958805660668" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-1309755933173654900" xil_pn:start_ts="1356092743">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="evaluator_e.pcf"/>
+      <outfile xil_pn:name="evaluator_e_map.map"/>
+      <outfile xil_pn:name="evaluator_e_map.mrp"/>
+      <outfile xil_pn:name="evaluator_e_map.ncd"/>
+      <outfile xil_pn:name="evaluator_e_map.ngm"/>
+      <outfile xil_pn:name="evaluator_e_map.xrpt"/>
+      <outfile xil_pn:name="evaluator_e_summary.xml"/>
+      <outfile xil_pn:name="evaluator_e_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092774" xil_pn:in_ck="5574909231134117149" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1356092749">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="evaluator_e.ncd"/>
+      <outfile xil_pn:name="evaluator_e.pad"/>
+      <outfile xil_pn:name="evaluator_e.par"/>
+      <outfile xil_pn:name="evaluator_e.ptwx"/>
+      <outfile xil_pn:name="evaluator_e.unroutes"/>
+      <outfile xil_pn:name="evaluator_e.xpi"/>
+      <outfile xil_pn:name="evaluator_e_pad.csv"/>
+      <outfile xil_pn:name="evaluator_e_pad.txt"/>
+      <outfile xil_pn:name="evaluator_e_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092781" xil_pn:in_ck="-455097125554022022" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1356092776">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="evaluator_e.bgn"/>
+      <outfile xil_pn:name="evaluator_e.bit"/>
+      <outfile xil_pn:name="evaluator_e.drc"/>
+      <outfile xil_pn:name="evaluator_e.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1356092774" xil_pn:in_ck="-2175253958805660800" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1356092772">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="evaluator_e.twr"/>
+      <outfile xil_pn:name="evaluator_e.twx"/>
     </transform>
   </transforms>
 
