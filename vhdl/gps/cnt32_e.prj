@@ -1,0 +1,2 @@
+vhdl work "../src/cnt32_e.vhd"
+vhdl work "../src/cnt32_a.vhd"

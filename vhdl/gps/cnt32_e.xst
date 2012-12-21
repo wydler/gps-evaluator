@@ -1,0 +1,5 @@
+set -tmpdir "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/xst/projnav.tmp"
+set -xsthdpdir "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/gps/xst"
+elaborate
+-ifn cnt32_e.prj
+-ifmt mixed

@@ -5,15 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;sft_s&gt;</arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clkcntsrl/zwh_shift64/syn_rising_edge/delay_sig_s_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">evaluator_e</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clkcntsrl/syn_rising_edge/delay_sig_s_0&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd</arg>&quot; line <arg fmt="%d" index="2">67</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;sft_s&gt;</arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clkcntsrl/zwh_shift64/syn_rising_edge/delay_sig_s_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">evaluator_e</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clkcntsrl/syn_rising_edge/delay_sig_s_1&gt; </arg>
 </msg>
 
-<msg type="error" file="Xst" num="827" delta="new" >&quot;<arg fmt="%s" index="1">/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd</arg>&quot; line <arg fmt="%d" index="2">8</arg>: Signal <arg fmt="%s" index="3">nxt_o</arg> cannot be synthesized, bad synchronous description. The description style you are using to describe a synchronous element (register, memory, etc.) is not supported in the current software release.
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>

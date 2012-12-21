@@ -22,22 +22,132 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="gps.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="cnt32_e.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="cnt32_e.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="cnt32_e.xst"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="evaluator_e.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="evaluator_e.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="evaluator_e.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="evaluator_e.ngr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="evaluator_e.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="evaluator_e.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="evaluator_e.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="evaluator_e_envsettings.html"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="evaluator_e_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="evaluator_e_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="evaluator_e_summary.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="evaluator_e_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="evaluator_e_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1356083685" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083685" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="../src/clkcntsrl_a.vhd"/>
+      <outfile xil_pn:name="../src/clkcntsrl_e.vhd"/>
+      <outfile xil_pn:name="../src/clkdiffpulse_e.vhd"/>
+      <outfile xil_pn:name="../src/clkdiv_e.vhd"/>
+      <outfile xil_pn:name="../src/cnt32_a.vhd"/>
+      <outfile xil_pn:name="../src/cnt32_e.vhd"/>
+      <outfile xil_pn:name="../src/dualclkcnt_a.vhd"/>
+      <outfile xil_pn:name="../src/dualclkcnt_e.vhd"/>
+      <outfile xil_pn:name="../src/evaluator_a.vhd"/>
+      <outfile xil_pn:name="../src/evaluator_e.vhd"/>
+      <outfile xil_pn:name="../src/falling_edge.vhd"/>
+      <outfile xil_pn:name="../src/gpsclksrc_a.vhd"/>
+      <outfile xil_pn:name="../src/gpsclksrc_e.vhd"/>
+      <outfile xil_pn:name="../src/rising_edge.vhd"/>
+      <outfile xil_pn:name="../src/tflipflop.vhd"/>
+      <outfile xil_pn:name="../src/uart.vhd"/>
+      <outfile xil_pn:name="../src/zwh_shift64_a.vhd"/>
+      <outfile xil_pn:name="../src/zwh_shift64_e.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083685" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="735614923219144400" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083685" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2725654779370286894" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083685" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="6548821260460466969" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083685" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="../src/clkcntsrl_a.vhd"/>
+      <outfile xil_pn:name="../src/clkcntsrl_e.vhd"/>
+      <outfile xil_pn:name="../src/clkdiffpulse_e.vhd"/>
+      <outfile xil_pn:name="../src/clkdiv_e.vhd"/>
+      <outfile xil_pn:name="../src/cnt32_a.vhd"/>
+      <outfile xil_pn:name="../src/cnt32_e.vhd"/>
+      <outfile xil_pn:name="../src/dualclkcnt_a.vhd"/>
+      <outfile xil_pn:name="../src/dualclkcnt_e.vhd"/>
+      <outfile xil_pn:name="../src/evaluator_a.vhd"/>
+      <outfile xil_pn:name="../src/evaluator_e.vhd"/>
+      <outfile xil_pn:name="../src/falling_edge.vhd"/>
+      <outfile xil_pn:name="../src/gpsclksrc_a.vhd"/>
+      <outfile xil_pn:name="../src/gpsclksrc_e.vhd"/>
+      <outfile xil_pn:name="../src/rising_edge.vhd"/>
+      <outfile xil_pn:name="../src/tflipflop.vhd"/>
+      <outfile xil_pn:name="../src/uart.vhd"/>
+      <outfile xil_pn:name="../src/zwh_shift64_a.vhd"/>
+      <outfile xil_pn:name="../src/zwh_shift64_e.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083688" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-8388457259052440225" xil_pn:start_ts="1356083685">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="evaluator_e_beh.prj"/>
+      <outfile xil_pn:name="evaluator_e_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1356083689" xil_pn:in_ck="-1562810885484454682" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5891852751610533780" xil_pn:start_ts="1356083688">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="evaluator_e_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
     <transform xil_pn:end_ts="1355485482" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1355485482">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1355485482" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-379414279071530350" xil_pn:start_ts="1355485482">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -63,14 +173,19 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1355487171" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2949019565579889686" xil_pn:start_ts="1355487164">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1356086635" xil_pn:in_ck="7314616113773530998" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2949019565579889686" xil_pn:start_ts="1356086625">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="evaluator_e.lso"/>
+      <outfile xil_pn:name="evaluator_e.ngc"/>
+      <outfile xil_pn:name="evaluator_e.ngr"/>
       <outfile xil_pn:name="evaluator_e.prj"/>
+      <outfile xil_pn:name="evaluator_e.stx"/>
       <outfile xil_pn:name="evaluator_e.syr"/>
       <outfile xil_pn:name="evaluator_e.xst"/>
+      <outfile xil_pn:name="evaluator_e_beh.prj"/>
       <outfile xil_pn:name="evaluator_e_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>

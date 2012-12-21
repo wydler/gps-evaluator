@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: evaluator_e.prj
@@ -118,17 +118,18 @@ Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt3
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_e.vhd" in Library work.
+Entity <clkcntsrl_e> compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_e.vhd" in Library work.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/uart.vhd" in Library work.
 Architecture uarttx_a of Entity uarttx_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_a.vhd" in Library work.
-Architecture evaluator_a of Entity evaluator_e is up to date.
+Entity <evaluator_e> (Architecture <evaluator_a>) compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" in Library work.
 Entity <clkcntsrl_e> (Architecture <clkcntsrl_a>) compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_a.vhd" in Library work.
 Architecture dualclkcnt_a of Entity dualclkcnt_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd" in Library work.
-Architecture zwh_shift64_a of Entity zwh_shift64_e is up to date.
+Entity <zwh_shift64_e> (Architecture <zwh_shift64_a>) compiled.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt32_a.vhd" in Library work.
 Architecture cnt32_a of Entity cnt32_e is up to date.
 Compiling vhdl file "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/gpsclksrc_a.vhd" in Library work.
@@ -148,6 +149,10 @@ Analyzing hierarchy for entity <dualclkcnt_e> in library <work> (architecture <d
 
 Analyzing hierarchy for entity <zwh_shift64_e> in library <work> (architecture <zwh_shift64_a>).
 
+Analyzing hierarchy for entity <rising_edge_e> in library <work> (architecture <rising_edge_a>).
+
+Analyzing hierarchy for entity <falling_edge_e> in library <work> (architecture <falling_edge_a>).
+
 Analyzing hierarchy for entity <gpsclksrc_e> in library <work> (architecture <gpsclksrc_a>).
 
 Analyzing hierarchy for entity <cnt32_e> in library <work> (architecture <cnt32_a>).
@@ -166,10 +171,6 @@ Analyzing Entity <evaluator_e> in library <work> (Architecture <evaluator_a>).
 Entity <evaluator_e> analyzed. Unit <evaluator_e> generated.
 
 Analyzing Entity <clkcntsrl_e> in library <work> (Architecture <clkcntsrl_a>).
-WARNING:Xst:819 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" line 50: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <sft_s>
-WARNING:Xst:819 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd" line 67: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <sft_s>
 Entity <clkcntsrl_e> analyzed. Unit <clkcntsrl_e> generated.
 
 Analyzing Entity <dualclkcnt_e> in library <work> (Architecture <dualclkcnt_a>).
@@ -181,23 +182,466 @@ Entity <gpsclksrc_e> analyzed. Unit <gpsclksrc_e> generated.
 Analyzing Entity <tff> in library <work> (Architecture <behave>).
 Entity <tff> analyzed. Unit <tff> generated.
 
+Analyzing Entity <cnt32_e> in library <work> (Architecture <cnt32_a>).
+Entity <cnt32_e> analyzed. Unit <cnt32_e> generated.
+
+Analyzing Entity <zwh_shift64_e> in library <work> (Architecture <zwh_shift64_a>).
+Entity <zwh_shift64_e> analyzed. Unit <zwh_shift64_e> generated.
+
 Analyzing Entity <rising_edge_e> in library <work> (Architecture <rising_edge_a>).
 Entity <rising_edge_e> analyzed. Unit <rising_edge_e> generated.
 
 Analyzing Entity <falling_edge_e> in library <work> (Architecture <falling_edge_a>).
 Entity <falling_edge_e> analyzed. Unit <falling_edge_e> generated.
 
-Analyzing Entity <cnt32_e> in library <work> (Architecture <cnt32_a>).
-Entity <cnt32_e> analyzed. Unit <cnt32_e> generated.
+Analyzing generic Entity <uarttx_e> in library <work> (Architecture <uarttx_a>).
+	txclkcount_g = 1
+Entity <uarttx_e> analyzed. Unit <uarttx_e> generated.
 
-Analyzing Entity <zwh_shift64_e> in library <work> (Architecture <zwh_shift64_a>).
-ERROR:Xst:827 - "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd" line 8: Signal nxt_o cannot be synthesized, bad synchronous description. The description style you are using to describe a synchronous element (register, memory, etc.) is not supported in the current software release.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <uarttx_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/uart.vhd".
+    Found 1-bit register for signal <tx_o>.
+    Found T flip-flop for signal <cnt_s<0>>.
+    Found 1-bit register for signal <tag1_s>.
+    Found 1-bit register for signal <tag2_s>.
+    Found 8-bit register for signal <thr_s>.
+    Found 8-bit register for signal <tsr_s>.
+    Found 1-bit register for signal <txclk_s>.
+    Found 1-bit register for signal <txdatardy_s>.
+    Found 1-bit register for signal <txdone1_s>.
+    Found 1-bit register for signal <txparity_s>.
+    Found 1-bit xor2 for signal <txparity_s$xor0000> created at line 92.
+    Found 1-bit register for signal <write1_s>.
+    Found 1-bit register for signal <write2_s>.
+    Summary:
+	inferred   1 T-type flip-flop(s).
+	inferred  25 D-type flip-flop(s).
+Unit <uarttx_e> synthesized.
+
+
+Synthesizing Unit <rising_edge_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/rising_edge.vhd".
+    Found 2-bit register for signal <delay_sig_s>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <rising_edge_e> synthesized.
+
+
+Synthesizing Unit <falling_edge_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/falling_edge.vhd".
+    Found 2-bit register for signal <delay_sig_s>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <falling_edge_e> synthesized.
+
+
+Synthesizing Unit <cnt32_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/cnt32_a.vhd".
+    Found 32-bit up counter for signal <cnt_next_v>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <cnt32_e> synthesized.
+
+
+Synthesizing Unit <tff>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/tflipflop.vhd".
+    Found 1-bit register for signal <t_s>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <tff> synthesized.
+
+
+Synthesizing Unit <zwh_shift64_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/zwh_shift64_a.vhd".
+    Found 8-bit register for signal <nxt_o>.
+    Found 64-bit register for signal <buf_v>.
+    Summary:
+	inferred  72 D-type flip-flop(s).
+Unit <zwh_shift64_e> synthesized.
+
+
+Synthesizing Unit <gpsclksrc_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/gpsclksrc_a.vhd".
+Unit <gpsclksrc_e> synthesized.
+
+
+Synthesizing Unit <dualclkcnt_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/dualclkcnt_a.vhd".
+Unit <dualclkcnt_e> synthesized.
+
+
+Synthesizing Unit <clkcntsrl_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/clkcntsrl_a.vhd".
+    Found 1-bit register for signal <sft_s>.
+    Found 9-bit up counter for signal <sftcnt_v>.
+    Found 9-bit comparator greater for signal <sftcnt_v$cmp_gt0000> created at line 91.
+    Found 9-bit comparator less for signal <sftcnt_v$cmp_lt0000> created at line 89.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <clkcntsrl_e> synthesized.
+
+
+Synthesizing Unit <evaluator_e>.
+    Related source file is "/home/stud/wydlermi/stud/mixsig/gps-evaluator/vhdl/src/evaluator_a.vhd".
+    Found 1-bit register for signal <sft_s>.
+    Found 1-bit register for signal <trg_rdy_s>.
+    Found 1-bit register for signal <write_s>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+Unit <evaluator_e> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 32-bit up counter                                     : 2
+ 9-bit up counter                                      : 1
+# Registers                                            : 100
+ 1-bit register                                        : 98
+ 8-bit register                                        : 2
+# Toggle Registers                                     : 1
+ T flip-flop                                           : 1
+# Comparators                                          : 2
+ 9-bit comparator greater                              : 1
+ 9-bit comparator less                                 : 1
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 32-bit up counter                                     : 2
+ 9-bit up counter                                      : 1
+# Registers                                            : 115
+ Flip-Flops                                            : 115
+# Comparators                                          : 2
+ 9-bit comparator greater                              : 1
+ 9-bit comparator less                                 : 1
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <evaluator_e> ...
+
+Optimizing unit <uarttx_e> ...
+
+Optimizing unit <zwh_shift64_e> ...
+
+Optimizing unit <clkcntsrl_e> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <clkcntsrl/zwh_shift64/syn_rising_edge/delay_sig_s_0> in Unit <evaluator_e> is equivalent to the following FF/Latch, which will be removed : <clkcntsrl/syn_rising_edge/delay_sig_s_0> 
+INFO:Xst:2261 - The FF/Latch <clkcntsrl/zwh_shift64/syn_rising_edge/delay_sig_s_1> in Unit <evaluator_e> is equivalent to the following FF/Latch, which will be removed : <clkcntsrl/syn_rising_edge/delay_sig_s_1> 
+Found area constraint ratio of 100 (+ 5) on block evaluator_e, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 186
+ Flip-Flops                                            : 186
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : evaluator_e.ngr
+Top Level Output File Name         : evaluator_e
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 5
+
+Cell Usage :
+# BELS                             : 363
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 62
+#      LUT2                        : 8
+#      LUT2_D                      : 1
+#      LUT2_L                      : 2
+#      LUT3                        : 18
+#      LUT3_D                      : 1
+#      LUT3_L                      : 2
+#      LUT4                        : 113
+#      LUT4_D                      : 3
+#      LUT4_L                      : 1
+#      MUXCY                       : 70
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 73
+# FlipFlops/Latches                : 186
+#      FDC                         : 28
+#      FDC_1                       : 4
+#      FDCE                        : 132
+#      FDE                         : 8
+#      FDP                         : 4
+#      FDPE                        : 10
+# Clock Buffers                    : 3
+#      BUFGP                       : 3
+# IO Buffers                       : 2
+#      IBUF                        : 1
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      117  out of   4656     2%  
+ Number of Slice Flip Flops:            186  out of   9312     1%  
+ Number of 4 input LUTs:                217  out of   9312     2%  
+ Number of IOs:                           5
+ Number of bonded IOBs:                   5  out of    232     2%  
+ Number of GCLKs:                         3  out of     24    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clka_i                             | BUFGP                  | 141   |
+uarttx/txclk_s                     | NONE(uarttx/tx_o)      | 12    |
+clkb_i                             | BUFGP                  | 32    |
+gps_i                              | BUFGP                  | 1     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+Control Signal                                                                           | Buffer(FF name)                                                | Load  |
+-----------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/rst_n_i_inv(uarttx/cnt_s_0_Aclr_inv1_INV_0:O)| NONE(clkcntsrl/dualclkcnt/gpsclksrc/falling_edge/delay_sig_s_0)| 114   |
+clkcntsrl/dualclkcnt/glbcntrst_s(clkcntsrl/dualclkcnt/glbcntrst_s1:O)                    | NONE(clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_0)            | 64    |
+-----------------------------------------------------------------------------------------+----------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 7.872ns (Maximum Frequency: 127.041MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 4.040ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clka_i'
+  Clock period: 7.872ns (frequency: 127.041MHz)
+  Total number of paths / destination ports: 3110 / 224
+-------------------------------------------------------------------------
+Delay:               3.936ns (Levels of Logic = 2)
+  Source:            clkcntsrl/sft_falling_edge/delay_sig_s_0 (FF)
+  Destination:       clkcntsrl/sftcnt_v_8 (FF)
+  Source Clock:      clka_i falling
+  Destination Clock: clka_i rising
+
+  Data Path: clkcntsrl/sft_falling_edge/delay_sig_s_0 to clkcntsrl/sftcnt_v_8
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC_1:C->Q           11   0.514   0.796  clkcntsrl/sft_falling_edge/delay_sig_s_0 (clkcntsrl/sft_falling_edge/delay_sig_s_0)
+     LUT4_D:I3->LO         1   0.612   0.169  clkcntsrl/sftcnt_v_and000162 (N54)
+     LUT2:I1->O           10   0.612   0.750  clkcntsrl/sft_s_mux00021 (clkcntsrl/sft_s_mux0002)
+     FDPE:CE                   0.483          clkcntsrl/sftcnt_v_0
+    ----------------------------------------
+    Total                      3.936ns (2.221ns logic, 1.715ns route)
+                                       (56.4% logic, 43.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'uarttx/txclk_s'
+  Clock period: 4.741ns (frequency: 210.933MHz)
+  Total number of paths / destination ports: 142 / 12
+-------------------------------------------------------------------------
+Delay:               4.741ns (Levels of Logic = 3)
+  Source:            uarttx/tsr_s_5 (FF)
+  Destination:       uarttx/tx_o (FF)
+  Source Clock:      uarttx/txclk_s rising
+  Destination Clock: uarttx/txclk_s rising
+
+  Data Path: uarttx/tsr_s_5 to uarttx/tx_o
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.514   0.603  uarttx/tsr_s_5 (uarttx/tsr_s_5)
+     LUT4:I0->O            2   0.612   0.532  uarttx/txdone_s_or00004 (uarttx/txdone_s_or00004)
+     LUT4:I0->O           13   0.612   0.988  uarttx/txdone_s_or000017 (uarttx/txdone_s_or0000)
+     LUT3:I0->O            1   0.612   0.000  uarttx/tx_o_mux0003 (uarttx/tx_o_mux0003)
+     FDP:D                     0.268          uarttx/tx_o
+    ----------------------------------------
+    Total                      4.741ns (2.618ns logic, 2.123ns route)
+                                       (55.2% logic, 44.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clkb_i'
+  Clock period: 4.522ns (frequency: 221.119MHz)
+  Total number of paths / destination ports: 528 / 32
+-------------------------------------------------------------------------
+Delay:               4.522ns (Levels of Logic = 32)
+  Source:            clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_1 (FF)
+  Destination:       clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_31 (FF)
+  Source Clock:      clkb_i rising
+  Destination Clock: clkb_i rising
+
+  Data Path: clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_1 to clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.514   0.532  clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_1 (clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_1)
+     LUT1:I0->O            1   0.612   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<1>_rt (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<1>_rt)
+     MUXCY:S->O            1   0.404   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<1> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<2> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<3> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<4> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<4>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<5> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<5>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<6> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<6>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<7> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<7>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<8> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<8>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<9> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<9>)
+     MUXCY:CI->O           1   0.052   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<10> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<11> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<12> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<13> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<14> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<15> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<16> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<17> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<17>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<18> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<18>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<19> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<19>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<20> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<20>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<21> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<21>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<22> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<22>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<23> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<23>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<24> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<24>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<25> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<25>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<26> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<26>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<27> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<27>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<28> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<28>)
+     MUXCY:CI->O           1   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<29> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<29>)
+     MUXCY:CI->O           0   0.051   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<30> (clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_cy<30>)
+     XORCY:CI->O           1   0.699   0.000  clkcntsrl/dualclkcnt/extclkcnt32/Mcount_cnt_next_v_xor<31> (clkcntsrl/Result<31>)
+     FDCE:D                    0.268          clkcntsrl/dualclkcnt/extclkcnt32/cnt_next_v_31
+    ----------------------------------------
+    Total                      4.522ns (3.991ns logic, 0.532ns route)
+                                       (88.2% logic, 11.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'gps_i'
+  Clock period: 2.833ns (frequency: 352.949MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.833ns (Levels of Logic = 1)
+  Source:            clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s (FF)
+  Destination:       clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s (FF)
+  Source Clock:      gps_i rising
+  Destination Clock: gps_i rising
+
+  Data Path: clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s to clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             67   0.514   1.082  clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s (clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s)
+     INV:I->O              1   0.612   0.357  clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s_not00011_INV_0 (clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s_not0001)
+     FDC:D                     0.268          clkcntsrl/dualclkcnt/gpsclksrc/gpstff/t_s
+    ----------------------------------------
+    Total                      2.833ns (1.394ns logic, 1.439ns route)
+                                       (49.2% logic, 50.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'uarttx/txclk_s'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            uarttx/tx_o (FF)
+  Destination:       tx_o (PAD)
+  Source Clock:      uarttx/txclk_s rising
+
+  Data Path: uarttx/tx_o to tx_o
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              1   0.514   0.357  uarttx/tx_o (uarttx/tx_o)
+     OBUF:I->O                 3.169          tx_o_OBUF (tx_o)
+    ----------------------------------------
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.74 secs
+ 
 --> 
 
 
-Total memory usage is 147600 kilobytes
+Total memory usage is 153596 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

@@ -23,7 +23,7 @@ begin
 	gpsclksrc: gpsclksrc_e
 	port map(
 		clk_i 		=> clka_i,
-		rst_n_i 	=> rst_n_i,
+		rst_n_i 		=> rst_n_i,
 		gps_i 		=> gps_i,
 		gpshalf_o 	=> gpstrg_s,
 		rising_o 	=> cntrst_s,

@@ -40,10 +40,12 @@ txdone_s <= not( tag2_s or tag1_s or tsr_s(7) or tsr_s(6) or tsr_s(5) or
 txrdy_o <= not txdatardy_s;
 
 --Latch data[7:0] into the transmit hold register at posedge of write.
-	thr_write : process( write_i, data_i, txdatardy_s )
+	thr_write : process( clk_i )
 	begin
-		if write_i = '0' and txdatardy_s = '0' then
-			thr_s <= data_i;
+		if clk_i'event and clk_i = '1' then
+			if write_i = '0' and txdatardy_s = '0' then
+				thr_s <= data_i;
+			end if;
 		end if;
 	end process;
 
