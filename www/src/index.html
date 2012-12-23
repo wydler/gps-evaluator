@@ -11,8 +11,22 @@
   <script type="text/javascript">
     $(document).ready(function(){
       initialize();
-      update();
-      setInterval("update()", 500);
+      //update();
+      //setInterval("update()", 500);
+
+	if (!!window.EventSource) {
+	  var source = new EventSource('/gps/events');
+	} else {
+	  console.log("constructor error");
+	}
+	source.addEventListener('clk', function(e) {
+	  console.log(e.data);
+	  //update_clk(data);
+	}, false);
+	source.addEventListener('gps', function(e) {
+	  console.log(e.data);
+	  update_gps(JSON.parse(e.data));
+	}, false);
     })
   </script>
 </head>

@@ -1,0 +1,22 @@
+<html>
+<body>
+<div id="clk">[CLK]</div>
+<div id="gps">[GPS]</div>
+
+<script type="text/javascript">
+	var source = new EventSource('/gps/events');
+	console.log(source);
+	
+	source.addEventListener("clk", function(e)
+	{
+		console.log(e.data);
+		document.querySelector('#clk').innerHTML = e.data;
+	}, false);
+	source.addEventListener("gps", function(e)
+	{
+		console.log(e.data);
+		document.querySelector('#gps').innerHTML = e.data;
+	}, false);
+</script>
+</body>
+</html>
