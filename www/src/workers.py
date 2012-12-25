@@ -1,24 +1,14 @@
 #!/usr/bin/python
 
-from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-import serial
-import struct
 import multiprocessing
-import Queue as queue
-import random
-import time
 import array
+import struct
 import json
+import time
+import random
+import settings
 
-FPGA_PORT = '/dev/ttyS0'
-FPGA_BAUD_RATE = 9600
-FPGA_PARITY_MODE = serial.PARITY_EVEN
-
-GPS_PORT = '/dev/ttyUSB0'
-GPS_BAUD_RATE = 9600
-GPS_PARITY_MODE = serial.PARITY_NONE
-
-class FPGAWorker(multiprocessing.Process):
+class FPGA(multiprocessing.Process):
 	def __init__(self, result_queue):
 		# base class initialization
 		multiprocessing.Process.__init__(self)
@@ -28,7 +18,7 @@ class FPGAWorker(multiprocessing.Process):
 		self.kill_received = False
 		
 		# open serial port
-		#self.serial = serial.Serial(FPGA_PORT, FPGA_BAUD_RATE, timeout=1, parity=FPGA_PARITY_MODE)
+		#self.serial = serial.Serial(settings.FPGA_PORT, settings.FPGA_BAUD_RATE, timeout=1, parity=settings.FPGA_PARITY_MODE)
 
 	def run(self):
 		# endless loop while process not killed
@@ -55,7 +45,7 @@ class FPGAWorker(multiprocessing.Process):
 			# pause 1 second, only for debugging
 			time.sleep(1)
 			
-class GPSWorker(multiprocessing.Process):
+class GPS(multiprocessing.Process):
 	def __init__(self, result_queue):
 		# base class initialization
 		multiprocessing.Process.__init__(self)
@@ -65,7 +55,7 @@ class GPSWorker(multiprocessing.Process):
 		self.kill_received = False
 		
 		# open serial port
-		#self.serial = serial.Serial(GPS_PORT, GPS_BAUD_RATE, timeout=1, parity=GPS_PARITY_MODE)
+		#self.serial = serial.Serial(settings.GPS_PORT, settings.GPS_BAUD_RATE, timeout=1, parity=settings.GPS_PARITY_MODE)
 
 	def run(self):
 		# endless loop while process not killed
@@ -108,37 +98,3 @@ class GPSWorker(multiprocessing.Process):
 			return round(d + m + s, 6)
 		else:
 			return 0
-
-class RequestHandler(BaseHTTPRequestHandler):
-	def do_GET(self):
-		self.send_response(200)
-		self.send_header('content-type', 'text/event-stream')
-		self.end_headers()
-		while True:
-			try:
-				#self.wfile.write('event: clk\nid: 1\ndata: {0}\ndata:\n\n'.format(time.time()))
-				self.wfile.write(result_queue.get())
-			except Exception as ex:
-				print ex
-				self.wfile.flush()
-
-try:
-	#clk_data = serial.Serial(FPGA_PORT, FPGA_BAUD_RATE, timeout=1, parity=FPGA_PARITY_MODE)
-	#gps_data = serial.Serial(GPS_PORT, GPS_BAUD_RATE, timeout=1, parity=GPS_PARITY_MODE)
-
-	# create a queue to pass to workers to store the results
-	result_queue = multiprocessing.Queue()
-
-	# start fpga worker
-	fpga_worker = FPGAWorker(result_queue)
-	fpga_worker.start()
-	
-	# start gps worker
-	gps_worker = GPSWorker(result_queue)
-	gps_worker.start()
-	
-	serveraddr = ('', 8001)
-	srvr = HTTPServer(serveraddr, RequestHandler)
-	srvr.serve_forever()
-except Exception as ex:
-	print ex

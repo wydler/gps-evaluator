@@ -1,37 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>GPS Evaluator</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
   <link rel="stylesheet" media="screen" type="text/css" href="css/main.css" />
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
   <script type="text/javascript" src="js/colorpicker.js"></script>
   <script type="text/javascript" src="js/parser.js"></script>
   <script type="text/javascript">
+  	$(window).resize(function() {
+	  $('#map_canvas').width($(document).width() - $('#hud').outerWidth());
+	  $('#map_canvas').height($(document).height() - $('#chart1').height()-200);
+	});
     $(document).ready(function(){
-      initialize();
-      //update();
-      //setInterval("update()", 500);
+    	$('#map_canvas').width($(document).width() - $('#hud').outerWidth());
+		$('#map_canvas').height($(document).height() - $('#chart1').height()-200);
+		
+		initialize();
 
-	if (!!window.EventSource) {
-	  var source = new EventSource('/gps/events');
-	} else {
-	  console.log("constructor error");
-	}
-	source.addEventListener('clk', function(e) {
-	  console.log(e.data);
-	  //update_clk(data);
-	}, false);
-	source.addEventListener('gps', function(e) {
-	  console.log(e.data);
-	  update_gps(JSON.parse(e.data));
-	}, false);
+		if (!!window.EventSource) {
+			var source = new EventSource('/gps/events');
+		} else {
+			console.log("constructor error");
+		}
+		source.addEventListener('clk', function(e) {
+			//console.log(e.data);
+			var data = JSON.parse(e.data);
+			
+			var date = (new Date()).getTime();
+			if (chart1.series[0].data.length < 20) {
+				chart1.series[0].addPoint([date, data.cnt1]);
+			} else {
+				chart1.series[0].addPoint([date, data.cnt1], true, true);
+			}
+			
+			if (chart2.series[0].data.length < 20) {
+				chart2.series[0].addPoint([date, data.cnt2]);
+			} else {
+				chart2.series[0].addPoint([date, data.cnt2], true, true);
+			}
+
+			//update_clk(data);
+		}, false);
+		source.addEventListener('gps', function(e) {
+			//console.log(e.data);
+			update_gps(JSON.parse(e.data));
+		}, false);
+		
+		Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+        
+        var chart1;
+        chart1 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart1',
+                type: 'spline',
+                borderRadius: 0,
+                marginRight: 10,
+            },
+            title: {
+                text: '<b>Interner Oszillator</b>'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150,
+            },
+            yAxis: {
+                title: {
+                    text: 'Takt'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                	return Highcharts.numberFormat(this.y, 0);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Takt',
+                data: [],
+            }]
+        });
+    
+        var chart2;
+        chart2 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart2',
+                type: 'spline',
+                borderRadius: 0,
+                marginRight: 10,
+            },
+            title: {
+                text: '<b>Externer Oszillator</b>'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'Takt'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                	return Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Takt',
+                data: []
+            }]
+        });
     })
   </script>
 </head>
 <body>
-  <div id="map_canvas" style="width:100%; height:100%"></div>
+  <div id="chart1" style="position: absolute; width: 50%; height: 200px; left:0; top:0; z-index:9999"></div>
+  <div id="chart2" style="position: absolute; width: 50%; height: 200px; right:0; top:0; z-index:9999"></div>
+  <div id="map_canvas" style="width:100%; height:300px; margin-top:200px;"></div>
   <div id="hud" class="data">
     <table>
       <tr>
@@ -90,10 +204,6 @@
         <td>Vertical:</td>
         <td id="data_vdop"></td>
       </tr>
-    </table>
-  </div>
-  <div id="hud" class="options">
-    <table>
       <tr>
         <td colspan="2" class="title">Options</td>
       </tr>
