@@ -24,29 +24,36 @@ class RequestHandler(BaseHTTPRequestHandler):
 def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("runserver")
+	parser.add_argument("--debug", action="store_true")
 	args = parser.parse_args()
-	
+
 	if args.runserver:
-		print "runserver"
-		runserver()
+		runserver(args.debug)
 		
-def runserver():
+def runserver(debug):
+	if debug:
+		print "Debugging mode is enabled."
+		
 	try:
 		# create a queue to pass to workers to store the results
 		global result_queue
 		result_queue = multiprocessing.Queue()
 
 		# start fpga worker
-		fpga_worker = workers.FPGA(result_queue)
+		fpga_worker = workers.FPGA(result_queue, debug)
 		fpga_worker.start()
 	
 		# start gps worker
-		gps_worker = workers.GPS(result_queue)
+		gps_worker = workers.GPS(result_queue, debug)
 		gps_worker.start()
 	
 		serveraddr = ('', 8001)
 		srvr = HTTPServer(serveraddr, RequestHandler)
 		srvr.serve_forever()
+	except KeyboardInterrupt:
+		fpga_worker.terminate()
+		gps_worker.terminate()
+		pass
 	except Exception as ex:
 		print ex
 

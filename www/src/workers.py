@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import serial
 import multiprocessing
 import array
 import struct
@@ -9,26 +10,31 @@ import random
 import settings
 
 class FPGA(multiprocessing.Process):
-	def __init__(self, result_queue):
+	debug = False
+
+	def __init__(self, result_queue, debug):
 		# base class initialization
 		multiprocessing.Process.__init__(self)
 
 		# job management stuff
 		self.result_queue = result_queue
 		self.kill_received = False
+		self.debug = debug
 		
 		# open serial port
-		#self.serial = serial.Serial(settings.FPGA_PORT, settings.FPGA_BAUD_RATE, timeout=1, parity=settings.FPGA_PARITY_MODE)
+		if not self.debug:
+			self.serial = serial.Serial(settings.FPGA_PORT, settings.FPGA_BAUD_RATE, timeout=1, parity=settings.FPGA_PARITY_MODE)
 
 	def run(self):
 		# endless loop while process not killed
 		data = {}
 		while not self.kill_received:
-			# read serial data
-			#bytes = self.serial.read(8)
-			
-			# dummy byte array for debugging
-			bytes = array.array('B', '\xa4\xf0\xfa\x02\xf8\x96\x98\x00')
+			if not self.debug:
+				# read serial data
+				bytes = self.serial.read(8)
+			else:
+				# dummy byte array for debugging
+				bytes = array.array('B', '\xa4\xf0\xfa\x02\xf8\x96\x98\x00')
 
 			# check data-length
 			if (len(bytes) == 8):
@@ -43,27 +49,36 @@ class FPGA(multiprocessing.Process):
 			self.result_queue.put('event: clk\ndata: %s\n\n' % json.JSONEncoder().encode(data))
 			
 			# pause 1 second, only for debugging
-			time.sleep(1)
+			if self.debug:
+				time.sleep(1)
 			
 class GPS(multiprocessing.Process):
-	def __init__(self, result_queue):
+	debug = False
+	
+	def __init__(self, result_queue, debug):
 		# base class initialization
 		multiprocessing.Process.__init__(self)
 
 		# job management stuff
 		self.result_queue = result_queue
 		self.kill_received = False
+		self.debug = debug
 		
 		# open serial port
-		#self.serial = serial.Serial(settings.GPS_PORT, settings.GPS_BAUD_RATE, timeout=1, parity=settings.GPS_PARITY_MODE)
+		if not self.debug:
+			self.serial = serial.Serial(settings.GPS_PORT, settings.GPS_BAUD_RATE, timeout=1, parity=settings.GPS_PARITY_MODE)
 
 	def run(self):
 		# endless loop while process not killed
 		data = {}
 		while not self.kill_received:
-			#c = self.serial.read()
-			if True or c == '\n':
-				sentence = '$GPGGA,191410,4735.5634,N,00739.3538,E,1,04,4.4,351.5,M,48.0,M,,*45'
+			if not self.debug:
+				c = self.serial.read()
+				
+			if self.debug or c == '\n':
+				if self.debug:
+					sentence = '$GPGGA,191410,4735.5634,N,00739.3538,E,1,04,4.4,351.5,M,48.0,M,,*45'
+					
 				s = sentence[1:-4].split(',')
 				if s[0] == 'GPGGA':
 					data["time"] = s[1][0:2]+":"+s[1][2:4]+":"+s[1][4:6]
@@ -85,8 +100,8 @@ class GPS(multiprocessing.Process):
 			else:
 				sentence += c
 				
-			# pause 1 second, only for debugging
-			time.sleep(1)
+			if self.debug:
+				time.sleep(1)
 				
 	def dms2deg(self, dms):
 		if dms != '':

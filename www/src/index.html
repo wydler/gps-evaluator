@@ -30,7 +30,7 @@
 			//console.log(e.data);
 			var data = JSON.parse(e.data);
 			
-			var date = (new Date()).getTime();
+			var date = new Date().getTime();
 			if (chart1.series[0].data.length < 20) {
 				chart1.series[0].addPoint([date, data.cnt1]);
 			} else {
