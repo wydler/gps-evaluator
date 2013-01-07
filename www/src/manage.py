@@ -14,7 +14,6 @@ class RequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		while True:
 			try:
-				#self.wfile.write('event: clk\nid: 1\ndata: {0}\ndata:\n\n'.format(time.time()))
 				global result_queue
 				self.wfile.write(result_queue.get())
 			except Exception as ex:
