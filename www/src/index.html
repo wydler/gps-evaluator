@@ -2,223 +2,226 @@
 <html>
 <head>
 	<title>GPS Evaluator</title>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
-  <link rel="stylesheet" media="screen" type="text/css" href="css/main.css" />
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-  <script type="text/javascript" src="js/colorpicker.js"></script>
-  <script type="text/javascript" src="js/parser.js"></script>
-  <script type="text/javascript">
-  	$(window).resize(function() {
-	  $('#map_canvas').width($(document).width() - $('#hud').outerWidth());
-	  $('#map_canvas').height($(document).height() - $('#chart1').height()-200);
-	});
-    $(document).ready(function(){
-    	$('#map_canvas').width($(document).width() - $('#hud').outerWidth());
-		$('#map_canvas').height($(document).height() - $('#chart1').height()-200);
-		
-		initialize();
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="css/main.css" />
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/parser.js"></script>
+	<script type="text/javascript">
+		$(window).resize(function() {
+			$('#map_canvas').width($(document).width() - $('#hud').outerWidth());
+			$('#map_canvas').height($(document).height() - $('#chart1').height()-200);
+		});
+		$(document).ready(function(){
+				$('#map_canvas').width($(document).width() - $('#hud').outerWidth());
+				$('#map_canvas').height($(document).height() - $('#chart1').height()-200);
+				
+				initialize();
 
-		if (!!window.EventSource) {
-			var source = new EventSource('/gps/events');
-		} else {
-			console.log("constructor error");
-		}
-		source.addEventListener('clk', function(e) {
-			//console.log(e.data);
-			var data = JSON.parse(e.data);
-			
-			var date = new Date().getTime();
-			if (chart1.series[0].data.length < 20) {
-				chart1.series[0].addPoint([date, data.cnt1]);
-			} else {
-				chart1.series[0].addPoint([date, data.cnt1], true, true);
-			}
-			
-			if (chart2.series[0].data.length < 20) {
-				chart2.series[0].addPoint([date, data.cnt2]);
-			} else {
-				chart2.series[0].addPoint([date, data.cnt2], true, true);
-			}
+				if (!!window.EventSource) {
+						var source = new EventSource('/gps/events');
+				} else {
+						console.log("constructor error");
+				}
+				source.addEventListener('clk', function(e) {
+						//console.log(e.data);
+						var data = JSON.parse(e.data);
+						
+						var date = new Date().getTime();
+						if (chart1.series[0].data.length < 20) {
+								chart1.series[0].addPoint([date, data.cnt1]);
+						} else {
+								chart1.series[0].addPoint([date, data.cnt1], true, true);
+						}
+						
+						if (chart2.series[0].data.length < 20) {
+								chart2.series[0].addPoint([date, data.cnt2]);
+						} else {
+								chart2.series[0].addPoint([date, data.cnt2], true, true);
+						}
 
-			//update_clk(data);
-		}, false);
-		source.addEventListener('gps', function(e) {
-			//console.log(e.data);
-			update_gps(JSON.parse(e.data));
-		}, false);
+						//update_clk(data);
+				}, false);
+				source.addEventListener('gps', function(e) {
+						//console.log(e.data);
+						update_gps(JSON.parse(e.data));
+				}, false);
+				source.addEventListener('ext', function(e) {
+						console.log(e);
+				}, false);
+				
+				Highcharts.setOptions({
+						global: {
+								useUTC: false
+						}
+				});
+				
+				var chart1;
+				chart1 = new Highcharts.Chart({
+						chart: {
+								renderTo: 'chart1',
+								type: 'spline',
+								borderRadius: 0,
+								marginRight: 10,
+						},
+						title: {
+								text: '<b>Interner Oszillator</b>'
+						},
+						xAxis: {
+								type: 'datetime',
+								tickPixelInterval: 150,
+						},
+						yAxis: {
+								title: {
+										text: 'Takt'
+								},
+								plotLines: [{
+										value: 0,
+										width: 1,
+										color: '#808080'
+								}]
+						},
+						tooltip: {
+								formatter: function() {
+										return Highcharts.numberFormat(this.y, 0);
+								}
+						},
+						legend: {
+								enabled: false
+						},
+						exporting: {
+								enabled: false
+						},
+						series: [{
+								name: 'Takt',
+								data: [],
+						}]
+				});
 		
-		Highcharts.setOptions({
-            global: {
-                useUTC: false
-            }
-        });
-        
-        var chart1;
-        chart1 = new Highcharts.Chart({
-            chart: {
-                renderTo: 'chart1',
-                type: 'spline',
-                borderRadius: 0,
-                marginRight: 10,
-            },
-            title: {
-                text: '<b>Interner Oszillator</b>'
-            },
-            xAxis: {
-                type: 'datetime',
-                tickPixelInterval: 150,
-            },
-            yAxis: {
-                title: {
-                    text: 'Takt'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                formatter: function() {
-                	return Highcharts.numberFormat(this.y, 0);
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            exporting: {
-                enabled: false
-            },
-            series: [{
-                name: 'Takt',
-                data: [],
-            }]
-        });
-    
-        var chart2;
-        chart2 = new Highcharts.Chart({
-            chart: {
-                renderTo: 'chart2',
-                type: 'spline',
-                borderRadius: 0,
-                marginRight: 10,
-            },
-            title: {
-                text: '<b>Externer Oszillator</b>'
-            },
-            xAxis: {
-                type: 'datetime',
-                tickPixelInterval: 150
-            },
-            yAxis: {
-                title: {
-                    text: 'Takt'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                formatter: function() {
-                	return Highcharts.numberFormat(this.y, 2);
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            exporting: {
-                enabled: false
-            },
-            series: [{
-                name: 'Takt',
-                data: []
-            }]
-        });
-    })
-  </script>
+				var chart2;
+				chart2 = new Highcharts.Chart({
+						chart: {
+								renderTo: 'chart2',
+								type: 'spline',
+								borderRadius: 0,
+								marginRight: 10,
+						},
+						title: {
+								text: '<b>Externer Oszillator</b>'
+						},
+						xAxis: {
+								type: 'datetime',
+								tickPixelInterval: 150
+						},
+						yAxis: {
+								title: {
+										text: 'Takt'
+								},
+								plotLines: [{
+										value: 0,
+										width: 1,
+										color: '#808080'
+								}]
+						},
+						tooltip: {
+								formatter: function() {
+										return Highcharts.numberFormat(this.y, 2);
+								}
+						},
+						legend: {
+								enabled: false
+						},
+						exporting: {
+								enabled: false
+						},
+						series: [{
+								name: 'Takt',
+								data: []
+						}]
+				});
+		})
+	</script>
 </head>
 <body>
-  <div id="chart1" style="position: absolute; width: 50%; height: 200px; left:0; top:0; z-index:9999"></div>
-  <div id="chart2" style="position: absolute; width: 50%; height: 200px; right:0; top:0; z-index:9999"></div>
-  <div id="map_canvas" style="width:100%; height:300px; margin-top:200px;"></div>
-  <div id="hud" class="data">
-    <table>
-      <tr>
-        <td colspan="2" class="title">Date & Time</td>
-      </tr>
-      <tr>
-        <td>Date:</td>
-        <td id="data_date"></td>
-      </tr>
-      <tr>
-        <td>Time:</td>
-        <td id="data_time"></td>
-      </tr>
-      <tr>
-        <td colspan="2" class="title">Position</td>
-      </tr>
-      <tr>
-        <td>Latitude:</td>
-        <td id="data_lat"></td>
-      </tr>
-      <tr>
-        <td>Longitude:</td>
-        <td id="data_lng"></td>
-      </tr>
-      <tr>
-        <td>Altitude:</td>
-        <td id="data_alt"></td>
-      </tr>
-      <tr>
-        <td colspan="2" class="title">Fix</td>
-      </tr>
-      <tr>
-        <td>Fix:</td>
-        <td id="data_fix"></td>
-      </tr>
-      <tr>
-        <td>Quality:</td>
-        <td id="data_quality"></td>
-      </tr>
-      <tr>
-        <td>Satellites:</td>
-        <td id="data_satellites"></td>
-      </tr>
-      <tr>
-        <td colspan="2" class="title">Dilution</td>
-      </tr>
-      <tr>
-        <td>Position:</td>
-        <td id="data_pdop"></td>
-      </tr>
-      <tr>
-        <td>Horizontal:</td>
-        <td id="data_hdop"></td>
-      </tr>
-      <tr>
-        <td>Vertical:</td>
-        <td id="data_vdop"></td>
-      </tr>
-      <tr>
-        <td colspan="2" class="title">Options</td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <form>
-            <input type="checkbox" name="option" value="path" id="checkbox_path" checked /> 
-            <span>Pfad anzeigen? <a href="#" id="cp_path"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
-            <br />
-            <input type="checkbox" name="option" value="radius" id="checkbox_radius" checked /> 
-            <span>Radius anzeigen? <a href="#" id="cp_circle"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
-          </form>
-        </td>
-      </tr>
-    </table>
-  </div>
+	<div id="chart1" style="position: absolute; width: 50%; height: 200px; left:0; top:0; z-index:9999"></div>
+	<div id="chart2" style="position: absolute; width: 50%; height: 200px; right:0; top:0; z-index:9999"></div>
+	<div id="map_canvas" style="width:100%; height:300px; margin-top:200px;"></div>
+	<div id="hud" class="data">
+		<table>
+			<tr>
+				<td colspan="2" class="title">Date & Time</td>
+			</tr>
+			<tr>
+				<td>Date:</td>
+				<td id="data_date"></td>
+			</tr>
+			<tr>
+				<td>Time:</td>
+				<td id="data_time"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="title">Position</td>
+			</tr>
+			<tr>
+				<td>Latitude:</td>
+				<td id="data_lat"></td>
+			</tr>
+			<tr>
+				<td>Longitude:</td>
+				<td id="data_lng"></td>
+			</tr>
+			<tr>
+				<td>Altitude:</td>
+				<td id="data_alt"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="title">Fix</td>
+			</tr>
+			<tr>
+				<td>Fix:</td>
+				<td id="data_fix"></td>
+			</tr>
+			<tr>
+				<td>Quality:</td>
+				<td id="data_quality"></td>
+			</tr>
+			<tr>
+				<td>Satellites:</td>
+				<td id="data_satellites"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="title">Dilution</td>
+			</tr>
+			<tr>
+				<td>Position:</td>
+				<td id="data_pdop"></td>
+			</tr>
+			<tr>
+				<td>Horizontal:</td>
+				<td id="data_hdop"></td>
+			</tr>
+			<tr>
+				<td>Vertical:</td>
+				<td id="data_vdop"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="title">Options</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<form>
+						<input type="checkbox" name="option" value="path" id="checkbox_path" checked /> 
+						<span>Pfad anzeigen? <a href="#" id="cp_path"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
+						<br />
+						<input type="checkbox" name="option" value="radius" id="checkbox_radius" checked /> 
+						<span>Radius anzeigen? <a href="#" id="cp_circle"><img src="images/color_wheel.png" width="12px" height="12px" /></a></span>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

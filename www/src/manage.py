@@ -1,24 +1,15 @@
 #!/usr/bin/python
 
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-
+import SocketServer
+import socket
+import threading
 import multiprocessing
 import argparse
 import settings
-import workers
-
-class RequestHandler(BaseHTTPRequestHandler):
-	def do_GET(self):
-		self.send_response(200)
-		self.send_header('content-type', 'text/event-stream')
-		self.end_headers()
-		while True:
-			try:
-				global result_queue
-				self.wfile.write(result_queue.get())
-			except Exception as ex:
-				print ex
-				self.wfile.flush()
+import threads
+import time
+import traceback
 
 def main():
 	parser = argparse.ArgumentParser()
@@ -34,27 +25,31 @@ def runserver(debug):
 		print "Debugging mode is enabled."
 		
 	try:
-		# create a queue to pass to workers to store the results
-		global result_queue
-		result_queue = multiprocessing.Queue()
+		# create message queue.
+		queue = multiprocessing.Queue()
 
-		# start fpga worker
-		fpga_worker = workers.FPGA(result_queue, debug)
-		fpga_worker.start()
-	
-		# start gps worker
-		gps_worker = workers.GPS(result_queue, debug)
-		gps_worker.start()
-	
-		serveraddr = ('', 8001)
-		srvr = HTTPServer(serveraddr, RequestHandler)
-		srvr.serve_forever()
-	except KeyboardInterrupt:
-		fpga_worker.terminate()
-		gps_worker.terminate()
-		pass
+		# create fpga reader queue.
+		fpga=threads.FPGAThread(queue, debug)
+		fpga.start()
+
+		gps=threads.GPSThread(queue, debug)
+		gps.start()
+
+		sse=threads.SSEThread(queue)
+		sse.start()
+
+		tcp=threads.TCPThread(queue)
+		tcp.start()
+
+		print 'Starting server, use <Ctrl-C> to stop.'
+		while True:
+			time.sleep(100)
+	except (KeyboardInterrupt, SystemExit):
+		tcp.server.shutdown()
+		print '\nReceived keyboard interrupt, quitting threads.'
 	except Exception as ex:
-		print ex
+		traceback.print_exc() 
+		#print ex
 
 if __name__ == "__main__":
 	main()
