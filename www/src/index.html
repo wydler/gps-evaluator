@@ -27,8 +27,8 @@
 						console.log("constructor error");
 				}
 				source.addEventListener('clk', function(e) {
-						//console.log(e.data);
 						var data = JSON.parse(e.data);
+						console.log(data);
 						
 						var date = new Date().getTime();
 						if (chart1.series[0].data.length < 20) {
@@ -42,15 +42,14 @@
 						} else {
 								chart2.series[0].addPoint([date, data.cnt2], true, true);
 						}
-
-						//update_clk(data);
 				}, false);
 				source.addEventListener('gps', function(e) {
 						//console.log(e.data);
 						update_gps(JSON.parse(e.data));
 				}, false);
 				source.addEventListener('ext', function(e) {
-						console.log(e);
+						//console.log(JSON.parse(e.data));
+						update_phone(JSON.parse(e.data));
 				}, false);
 				
 				Highcharts.setOptions({

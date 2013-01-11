@@ -2,7 +2,7 @@
 
 import serial
 
-FPGA_PORT = '/dev/ttyS0'
+FPGA_PORT = '/dev/ttyUSB1'
 FPGA_BAUD_RATE = 9600
 FPGA_PARITY_MODE = serial.PARITY_EVEN
 

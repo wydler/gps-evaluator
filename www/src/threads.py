@@ -51,6 +51,8 @@ class FPGAThread(Thread):
 				data['cnt1'] = cnts[0]
 				data['cnt2'] = cnts[1]
 
+				print data
+
 				# create random values for debugging.
 				if self.debug:
 					data['cnt1'] += random.randrange(-1000,3000)
@@ -83,6 +85,7 @@ class GPSThread(Thread):
 
 		# create empty dictionary.
 		data = {}
+		sentence = ''
 
 		# endless loop.
 		while True:
@@ -94,7 +97,7 @@ class GPSThread(Thread):
 			if self.debug or c == '\n':
 				if self.debug:
 					# dummy sentence for debugging.
-					sentence = '$GPGGA,191410,4735.5634,N,00739.3538,E,1,04,4.4,351.5,M,48.0,M,,*45'
+					sentence = '$GPGGA,191410,4759.2723,N,00765.5896,E,1,04,4.4,351.5,M,48.0,M,,*45'
 				
 				# split sentence to array.
 				# ignore the first and the last 4 characters.
@@ -178,6 +181,8 @@ class TCPThread(Thread):
 			#self.request.settimeout(1)
 			while True:
 				data = self.request.recv(1024)
+				if not data:
+					break
 				if (data.strip() != 'bye'):
 					self.server.queue.put('event: ext\ndata: %s\n\n' % (data))
 				else:
@@ -199,5 +204,6 @@ class TCPThread(Thread):
 		self.server.queue = queue
 
 	def run(self):
+		print "TCP Server running..."
 		# endless service loop.
 		self.server.serve_forever()
