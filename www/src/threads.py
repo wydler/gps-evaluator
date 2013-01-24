@@ -51,15 +51,13 @@ class FPGAThread(Thread):
 				data['cnt1'] = cnts[0]
 				data['cnt2'] = cnts[1]
 
-				print data
-
 				# create random values for debugging.
 				if self.debug:
 					data['cnt1'] += random.randrange(-1000,3000)
 					data['cnt2'] += random.randrange(-1000,3000)
 			
-			# put event messages to queue.
-			self.queue.put('event: clk\ndata: %s\n\n' % json.JSONEncoder().encode(data))
+				# put event messages to queue.
+				self.queue.put('event: clk\ndata: %s\n\n' % (json.JSONEncoder().encode(data)))
 			
 			# pause 1 second, only for debugging
 			if self.debug:
@@ -97,7 +95,7 @@ class GPSThread(Thread):
 			if self.debug or c == '\n':
 				if self.debug:
 					# dummy sentence for debugging.
-					sentence = '$GPGGA,191410,4759.2723,N,00765.5896,E,1,04,4.4,351.5,M,48.0,M,,*45'
+					sentence = '$GPGGA,191410,4748.8580,N,00939.1690,E,1,04,4.4,351.5,M,48.0,M,,*45'
 				
 				# split sentence to array.
 				# ignore the first and the last 4 characters.
