@@ -1,0 +1,1 @@
+'event: gps\ndata: json-data\n\n'

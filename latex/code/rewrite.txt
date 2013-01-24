@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule events http://localhost:8001/ [NC,L,P]
+</IfModule>

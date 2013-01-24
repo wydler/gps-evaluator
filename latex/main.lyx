@@ -1,0 +1,2501 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{ \nouppercase{\leftmark}} }
+\fancyhead[LO]{\textit{ \nouppercase{\rightmark}} }
+
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.47,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.40,0.00,0.93}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.33,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.20,0.40,0.60}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.87}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.47,0.60}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.47,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.20,0.40}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.80}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.00,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.40,0.73}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{0.93,0.93,0.93}{\strut ##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.20,0.20,0.73}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.47,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.60,0.40,0.20}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.13,0.00}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.53,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.40,0.00,0.93}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.67,0.67}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.53,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.40,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,1.00}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.27,0.00,0.93}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.87}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.53,0.00}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.53,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.20,0.53}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.20,0.20,0.60}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.53,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.27,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman cmr
+\font_sans cmss
+\font_typewriter cmtt
+\font_default_family sfdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "GPS Evaluator"
+\pdf_author "T. Himmer, M. Wydler, K-H. Zimmermann"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subject
+Mixed Signal, Hard-Software-Co-Design
+\begin_inset Newline newline
+\end_inset
+
+(Embedded Systems)
+\end_layout
+
+\begin_layout Title
+
+\size giant
+GPS Evaluator
+\end_layout
+
+\begin_layout Subtitle
+
+\size larger
+Characterization of oscillators
+\end_layout
+
+\begin_layout Author
+Tobias Himmer (24111)
+\begin_inset Newline newline
+\end_inset
+
+Michael Wydler (24113)
+\begin_inset Newline newline
+\end_inset
+
+Karl-Heinz Zimmermann (24112)
+\end_layout
+
+\begin_layout Date
+19.01.2013
+\end_layout
+
+\begin_layout Publishers
+\begin_inset Graphics
+	filename images/HS_RV_Logo_english.eps
+	lyxscale 50
+	width 40text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Basics
+\end_layout
+
+\begin_layout Standard
+The GPS Evaluator shall display the system's position as reported by the
+ GPS module (the position is retrieved using at least 3 satellites).
+ The system (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Overview-of-the-system"
+
+\end_inset
+
+) uses the GPS clock as reference signal for further time measurements on
+ the Spartan 3E board.
+ The clock deviation of both, the internal system clock and the external
+ oscillator is calculated.
+ The calculated values and the GPS position are sent to a server.
+ It is also possible to connect multiple smartphones to the server, which
+ also send their current position.
+ The position of the GPS board and the smartphones can be displayed using
+ any
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Internet Explorer excluded
+\end_layout
+
+\end_inset
+
+ webbrowser.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/system_overview.png
+	lyxscale 25
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Overview-of-the-system"
+
+\end_inset
+
+Overview of the complete system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Concept of GPS
+\end_layout
+
+\begin_layout Standard
+The GPS is using the time-delay of the travelling signal to determine the
+ current position.
+ Therefor at least 3 satellites are required (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Concept-of-GPS"
+
+\end_inset
+
+).
+ The satellites need a synchronized and very accurate clock to get an accurate
+ position.
+ A fourth satellite is required to get an accurate time signal.
+ This time signal is well suited for characterizing an oscillator’s frequency
+ and hence used as the reference time signal in this project.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/gps_concept.jpg
+	lyxscale 50
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Concept-of-GPS"
+
+\end_inset
+
+Concept of GPS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For more information, please see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GPSWorld:1990:GPS"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+NMEA Protocol
+\end_layout
+
+\begin_layout Standard
+NMEA 0183 is a standardised communication protocol, which was defined by
+ the National Marine Electronics Association (NMEA).
+ It is used for the communication between GPS devices and computers.
+ The data sent with this protocol is structured in so-called sentences and
+ has the following format:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+$SDDBT,22.3,f,6.8,M,3.7,F*3F<cr><lf>
+\end_layout
+
+\begin_layout Standard
+The “
+\family typewriter
+$
+\family default
+” character indicates a new sentence and the “
+\family typewriter
+*
+\family default
+” character indicates the end.
+ The “
+\family typewriter
+*
+\family default
+” is followed by the check-sum (XOR of all characters between the “
+\family typewriter
+$
+\family default
+” and “
+\family typewriter
+*
+\family default
+”) of the sentence.
+\end_layout
+
+\begin_layout Standard
+For this implementation only 3 of over 50 possible sentences are used:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GPRMC
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Recommended Minimum Sentence C, supported by every GPS device.
+ Contains information about date, time, status and mode.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GPGGA
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Contains the most important information about position, height and accuracy.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GPGSA
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Contains information about fixed satellites, fix quality and accuracy.
+\end_layout
+
+\begin_layout Standard
+For detailed information on MNEA sentences refer to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Glenn:2001:NMEA"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wiki:2012:NMEA"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+FPGA
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_overview.png
+	lyxscale 25
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FPGA-Overview"
+
+\end_inset
+
+Overview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Clock A is used as system clock - e.g.
+ edge detectors use this clock source as reference.
+ Thus, clock A should always be faster than clock B!
+\end_layout
+
+\begin_layout Standard
+The internal circuit for the FPGA is divided into the following tasks:
+\end_layout
+
+\begin_layout Itemize
+Generation of the halved GPS clock signal as well as detecting rising and
+ falling edges of the halved GPS clock signal.
+\end_layout
+
+\begin_layout Itemize
+Counting of the frequency for both oscillator inputs in parallel.
+\end_layout
+
+\begin_layout Itemize
+Serializing the counter values.
+\end_layout
+
+\begin_layout Itemize
+Sending the serialized counter values to a computer for visualization.
+\end_layout
+
+\begin_layout Standard
+These tasks are divided into two phases, each one second in duration, depending
+ on the halved GPS clock signal:
+\end_layout
+
+\begin_layout Itemize
+Clock signal equals logical one: Both connected frequencies are counted
+ until the end of phase 1, then held for further processing.
+\end_layout
+
+\begin_layout Itemize
+Clock signal equals logical zero: Serializing and sending the previously
+ determined counter values via UART.
+ At the end of phase two the counters are reset into their initial state
+ to prepare for counting frequencies in the next cycle.
+\end_layout
+
+\begin_layout Standard
+Therefore every two seconds, a new pair of counter values is generated and
+ sent to the connected device.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-two-phases-of-the-FPGA"
+
+\end_inset
+
+ illustrates one measurement and transmission cycle.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_phases.png
+	lyxscale 25
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-two-phases-of-the-FPGA"
+
+\end_inset
+
+The two phases of the FPGA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+GPS Clock
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_clock_divider.png
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GPS-clock-divider"
+
+\end_inset
+
+GPS clock divider and edge detectors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The GPS clock passes a toggle flip-flop to generate the halved GPS clock
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GPS-clock-divider"
+
+\end_inset
+
+).
+ Additionally the falling and rising edges are detected: A pulse on the
+ rising edge output marks the beginning of a measurement-phase, whereas
+ a falling edge marks the end of the measurement-phase and the beginning
+ of a transmission-phase.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:2x32-Bit-Binary-Counter"
+
+\end_inset
+
+2x32-Bit Binary Counter
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_counters.png
+	lyxscale 25
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:32-bit-binary-counters"
+
+\end_inset
+
+32-bit binary counters
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Frequency counting is implemented using a 32-bit binary counter for each
+ oscillator input (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:32-bit-binary-counters"
+
+\end_inset
+
+).
+ No clock dividers for the oscillator inputs are used in this design.
+ Each counter ranges from 0 to 4.294.967.295 (2³²-1), hence frequencies up
+ to ~4.294GHz could be counted for one second.
+\end_layout
+
+\begin_layout Section
+Serialization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_serialization.png
+	lyxscale 25
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Serialization-of-two-32-bit-counter-values"
+
+\end_inset
+
+Serialization of two 32-bit counter values
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The serial transmitter (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Serialization-of-two-32-bit-counter-values"
+
+\end_inset
+
+) is only capable of sending one byte at a time, thus a shift register is
+ needed to serialize the 64 bits into 8 bit chunks.
+\end_layout
+
+\begin_layout Standard
+Each time a new pair of counter values is generated, the values are loaded
+ into the shift register (“
+\family typewriter
+syn
+\family default
+” signal) and a “
+\family typewriter
+write
+\family default
+” pulse is sent to the UART to initiate a transmission.
+ As soon as the UART is capable of consuming one more byte, the “
+\family typewriter
+next
+\family default
+” signal is triggered by the UART.
+ This causes a shift to the next byte and a subsequent “
+\family typewriter
+write
+\family default
+” pulse until 8 bytes are sent (7 shifts total).
+\end_layout
+
+\begin_layout Section
+UART
+\end_layout
+
+\begin_layout Standard
+Based upon 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/1999f/UART/txmit.vhd"
+target "http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/1999f/UART/txmit.vhd"
+
+\end_inset
+
+ but modified interface behaviour and replaced baud rate generation with
+ a more flexible clock divider that is not limited to dividers to the power
+ of two.
+\end_layout
+
+\begin_layout Standard
+The two counter values are sent in little-endian
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Little-endian
+\end_layout
+
+\end_inset
+
+ format as seen in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Binary-format-for-counters"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_endianess.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Binary-format-for-counters"
+
+\end_inset
+
+Binary format for counter values
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Example of a transmission and it’s decoding:
+\end_layout
+
+\begin_layout Standard
+FPGA sends:
+\end_layout
+
+\begin_layout Verse
+
+\family typewriter
+0xA4 0xF0 0xFA 0x02
+\family default
+ for counter A and
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+0xF8 0x96 0x98 0x00
+\family default
+ for counter B 
+\end_layout
+
+\begin_layout Standard
+Server decodes: 
+\end_layout
+
+\begin_layout Verse
+50,000,036 (~50MHz) for counter A and 
+\begin_inset Newline newline
+\end_inset
+
+10,000,120 (~10MHz) for counter B
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Detailed Schematic
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/fpga_complete.png
+	height 90theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Server
+\end_layout
+
+\begin_layout Standard
+The server is programmed using Python
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Python_(programming_language)
+\end_layout
+
+\end_inset
+
+.
+ Python is used because it is a high-level programming language, which provides
+ a large and comprehensive standard library.
+\end_layout
+
+\begin_layout Standard
+To manage the application environment, the Python package 
+\begin_inset Quotes eld
+\end_inset
+
+virtualenv” is used.
+ With this package it is possible to create a local environment and only
+ install/activate necessary packages (no root privileges required).
+ For this application only the Python standard library and two additional
+ packages are needed:
+\end_layout
+
+\begin_layout Description
+argparse==1.2.1 (to manage program arguments)
+\end_layout
+
+\begin_layout Description
+pyserial==2.6 (to read data from serial/usb ports)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To run the server, an Apache Webserver
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://httpd.apache.org/
+\end_layout
+
+\end_inset
+
+ is required.
+ Also the 
+\family typewriter
+mod_rewrite
+\family default
+ and 
+\family typewriter
+mod_proxy
+\family default
+ modules must be activated.
+ For security reasons, a rewrite of the event-stream URL to a relative applicati
+on URL is applied.
+ This is achieved by a 
+\family typewriter
+.htaccess
+\family default
+ file in the root directory of the website itself:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "code/rewrite.tex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Components
+\end_layout
+
+\begin_layout Standard
+The complete program is split into four threads to provide parallel processing.
+ All threads have a shared message queue to pass messages from one thread
+ to another.
+ The main program only sets up all threads and starts them.
+ If the main program is terminated, all threads are terminated as well.
+\end_layout
+
+\begin_layout Standard
+The server can be started with the following command:
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+\series bold
+python
+\series default
+ manage.py runserver [
+\emph on
+--debug
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+The option “
+\family typewriter
+--debug
+\family default
+” can be used to simulate a connected FPGA- and GPS board.
+ It will generate random values for the two counters and set a fixed GPS
+ position.
+ The server can be stopped by pressing 
+\family typewriter
+\series bold
+Ctrl+C
+\family default
+\series default
+ on the keyboard.
+ This will stop all threads and quit the program.
+\end_layout
+
+\begin_layout Subsection
+FPGAThread
+\end_layout
+
+\begin_layout Standard
+This thread is reading eight bytes (four bytes for each counter value) from
+ the serial port connected to the FPGA in an endless loop.
+ This byte-array is unpacked (little-endian) into two integer variables.
+ In the next step, these values are encoded as JSON data and finally put
+ into the shared message queue (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FPGA-thread-activity"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+JSON example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+json-data = {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "cnt1": "50000120",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "cnt2": "10000048"
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+Message example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+event: clk
+\backslash
+ndata: json-data
+\backslash
+n
+\backslash
+n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server_fpga.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FPGA-thread-activity"
+
+\end_inset
+
+FPGA thread activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+GPSThread
+\end_layout
+
+\begin_layout Standard
+This thread (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GPS-thread-activity"
+
+\end_inset
+
+) uses an endless loop to read every byte from the GPS module.
+ Until a new line character is received, all characters are merged into
+ a sentence.
+ If a sentence is complete, the required information is parsed from the
+ sentence.
+ Latitude and longitude must be converted from the degrees/minutes/seconds-forma
+t into the decimal degrees format.
+ After JSON encoding, the data is also put into the shared message queue.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+JSON example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+json-data = {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "time": "17:47:25",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "date": "18.01.2013",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "latitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "longitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "altitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+    ...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+Message example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+event: gps
+\backslash
+ndata: json-data
+\backslash
+n
+\backslash
+n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server_gps.png
+	lyxscale 25
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GPS-thread-activity"
+
+\end_inset
+
+GPS thread activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+TCPThread
+\end_layout
+
+\begin_layout Standard
+This thread (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TCP-thread-activity"
+
+\end_inset
+
+) is responsible for the TCP connections to the smartphones.
+ As this is a multithreaded server, it is possible to connect multiple smartphon
+es simultaneously.
+ The data is also put into the shared message queue.
+ To close the connection, the smartphone’s client has to send a message
+ containing “
+\family typewriter
+bye
+\family default
+”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+JSON example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+json-data = {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "latitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "longitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "altitude": "...",
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+Message example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+event: ext
+\backslash
+ndata: json-data
+\backslash
+n
+\backslash
+n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server_tcp.png
+	lyxscale 75
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TCP-thread-activity"
+
+\end_inset
+
+TCP thread activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+SSEThread
+\end_layout
+
+\begin_layout Standard
+This thread (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SSE-thread-activity"
+
+\end_inset
+
+) is used to transmit the events from the FPGA-, GPS- and TCP-Thread to
+ the connected web-client.
+ Basically this thread is a HTTP-Server, whose content-type is changed to
+ “
+\family typewriter
+text/event-stream
+\family default
+”.
+ Whenever a new event is available in the shared message queue, it will
+ be sent to the client.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+Stream example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+event: type
+\backslash
+ndata: data
+\backslash
+n
+\backslash
+n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server_sse.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SSE-thread-activity"
+
+\end_inset
+
+SSE thread activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Activity Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server_complete.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Activity-diagram"
+
+\end_inset
+
+Activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Client
+\end_layout
+
+\begin_layout Section
+Web-Interface
+\end_layout
+
+\begin_layout Standard
+To display the collected information, a HTML5
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/HTML5
+\end_layout
+
+\end_inset
+
+ web-interface has been developed.
+ This web-interface (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:User-Interface"
+
+\end_inset
+
+) can be opened with every browser
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The complete web-interface has been tested with Google Chrome, so we recommend
+ to use it.
+\end_layout
+
+\end_inset
+
+.
+ JavaScript
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/JavaScript
+\end_layout
+
+\end_inset
+
+ (with jQuery), a client-side scripting language is used to receive new
+ information from the server and update the interface.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/client_webgui.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:User-Interface"
+
+\end_inset
+
+User-Interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The page can be split into three components.
+ The first component is the map.
+ This map uses the Google Maps JavaScript API
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://developers.google.com/maps/documentation/javascript/?hl=de
+\end_layout
+
+\end_inset
+
+ to display the current position of the GPS board at the center of the map.
+ In addition, the position of connected Android smartphones is displayed
+ (see Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Android"
+
+\end_inset
+
+).
+ It is also possible to display the path of the last 100 positions and an
+ estimated precision (as circle around the icon) of the GPS board.
+\end_layout
+
+\begin_layout Standard
+The second component is the information HUD on the left side.
+ All important information from the GPS board, like position, fix quality,
+ number of satellites can be found there.
+ The last component is the characterization of oscillators.
+ Therefor we used the Highcharts
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.highcharts.com/
+\end_layout
+
+\end_inset
+
+ JavaScript library, to display two graphs at the head of the page.
+ With these graphs the frequency of the oscillators (only the last 20 samples,
+ the value range is adjusted dynamically) is visualized.
+\end_layout
+
+\begin_layout Standard
+The communication with the server is realized via server-send-events
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Server-sent_events
+\end_layout
+
+\end_inset
+
+ (sse).
+ These events are generated by the SSEThread (see Chapter [SSETHREAD]) in
+ the server application.
+ On the client side, it is sufficient to connect to this event-stream and
+ react to the events.
+ The basic functionality is shown in the next example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Minisec
+Example:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\scriptsize},breaklines=true,language=Java,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var source = new EventSource('/gps/events'); 
+\end_layout
+
+\begin_layout Plain Layout
+
+source.addEventListener('clk', function(e) { do something with data }, false);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+source.addEventListener('gps', function(e) { do something with data }, false);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+source.addEventListener('ext', function(e) { do something with data }, false);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because the data is encoded as JSON, it is trivial to extract the required
+ information - JavaScript has a build-in function called 
+\family typewriter
+JSON.parse(e.data)
+\family default
+.
+ This function parses the JSON data and returns the data as object or array.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Android"
+
+\end_inset
+
+Android
+\end_layout
+
+\begin_layout Standard
+Since the web-interface already displays the GPS position of the GPS module,
+ it was obvious that other devices may be shown on the screen, too.
+\end_layout
+
+\begin_layout Standard
+Android is well suited for this task, as within the Android device it is
+ possible to retrieve the GPS information of the smartphone itself.
+ This GPS dataset is transferred to the server, that displays all connected
+ smartphones.
+ The developed application, is called an Android 
+\begin_inset Quotes eld
+\end_inset
+
+App
+\begin_inset Quotes erd
+\end_inset
+
+ and is shown in the following figures.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/client_add_connection.png
+	lyxscale 25
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Adding-a-connection"
+
+\end_inset
+
+Adding a connection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/client_connect_server.png
+	lyxscale 25
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Connect-to-server"
+
+\end_inset
+
+Connect to server
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Android-activity-diagram"
+
+\end_inset
+
+ shows the design of the application.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/client_design.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Android-activity-diagram"
+
+\end_inset
+
+Android activity diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The diagram shows that at first, the user has to configure the network connectio
+n to the server by entering it's IP-Address and port.
+ After this step the connection to the server can be opened.
+ If it is not possible to establish a connection, the App will repeat the
+ connection attempt until a connection is established or the user cancels
+ the connection process.
+ If the connection is established, the App listens to the GPS data, which
+ is provided by the Android OS.
+ Two parameters can be chosen that define the update condition of the GPS
+ position: 
+\end_layout
+
+\begin_layout Standard
+A minimum change of the position and additionally a minimum time interval
+ between two updates can be defined.
+ (current implementation: min.
+ distance change=1 meter, min.
+ time change=1 second) 
+\end_layout
+
+\begin_layout Standard
+Android calls the method which is responsible for updating the server.
+ This method shown on the right side of the diagram, is running in parallel
+ to the main process.
+ The method receives the GPS information as an argument.
+ This GPS dataset is converted to a JSON string which contains the Android’s
+ Device-ID, latitude, longitude and the altitude.
+ Further, this generated JSON string is transmitted to the server which
+ shows a symbol for each smartphone on the map.
+ This task is repeated until the user stops the App.
+ As the server is multithreaded, it is possible to connect any number of
+ smartphones.
+ While testing the GPS device it turns out, that occasionally there is a
+ difference of about 10-20 meters from the real position.
+ So with three devices (one GPS device and two Android devices e.g.) it is
+ possible to make a triangle interpolation to minimize the location error
+ of the single devices.
+ This referencing process can for example be done at beginning, but it is
+ currently unimplemented.
+\end_layout
+
+\begin_layout Chapter
+Statistics
+\end_layout
+
+\begin_layout Standard
+As shown in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:2x32-Bit-Binary-Counter"
+
+\end_inset
+
+, a 32-bit counter for each oscillator is used.
+ As a result no dividers are necessary.
+ The obtained counter values are 100% accurate, as every pulse of the oscillator
+ is counted.
+\end_layout
+
+\begin_layout Standard
+It seems that the counter values fluctuate about plus minus three.
+ A possible explanation for these differences could be that the noise on
+ the GPS clock signal affects the accuracy of the counting period.
+ Among other things, this effect depends on the cable length between GPS
+ module and FPGA board.
+\end_layout
+
+\begin_layout Standard
+For more detailed statistics, more sample data as currently available would
+ be necessary.
+\end_layout
+
+\begin_layout Chapter
+Problems
+\end_layout
+
+\begin_layout Standard
+The one-second signal between GPS module and FPGA is prone to noise and
+ other disturbances caused by long wires.
+ These circumstances manifest in incorrect counter values.
+\end_layout
+
+\begin_layout Standard
+Unclean rising and/or falling edges produced measurement phases shorter
+ than one second.
+ The most common error appeared after the falling edge on the signal: The
+ oscillations after the falling edge resulted in falsely detected rising-edges
+ that produced counter values amounting a fifth of the expected values (the
+ one-second signal of the GPS module has a high-time of a fifth of a second).
+ This effect emerged only on certain device configurations.
+ 
+\end_layout
+
+\begin_layout Standard
+To mitigate this problem, shorter wires have been used.
+ Additionally some experimentation was done on where to connect the individual
+ device’s power supplies for best signal quality.
+ Following images are taken from an oscilloscope connected to the GPS clock
+ signal:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/problem_1.jpg
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GPS signal pulse
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/problem_2.jpg
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Noisy GPS signal pulse
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/problem_3.png
+	lyxscale 25
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Falling-edge oscillations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Summary
+\end_layout
+
+\begin_layout Standard
+For us as computer scientists this project was a great experience.
+ Common computer scientists only program the software running on some hardware.
+ Until this course, nobody of us had experience with designing and implementing
+ hardware circuits itself using VHDL.
+ At the beginning we had some problems getting used to the idea of VHDL
+ programming, as VHDL is a descriptive language that differs from common
+ programming languages like C, C++ or Java.
+\end_layout
+
+\begin_layout Standard
+It was more effective to learn about hardware-software-co-design working
+ on a hands-on project than just learning the theoretical approach.
+ There are many possibilities on how to use GPS information in applications,
+ so we implemented additional functionality in our project (e.
+ g.
+ display current position on map, connect Android smartphones).
+ 
+\end_layout
+
+\begin_layout Standard
+The logic is realized in VDHL and could successfully be synthesised on our
+ target system.
+ Both oscillator frequencies are measured correctly and sent to the server.
+ Also the GPS board and all connected smartphones transfer their position
+ information to the server.
+ The server forwards all this information to the client, which in turn displays
+ the data in a user-friendly manner.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Address
+\noindent
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/wydler/gps-evaluator"
+target "https://github.com/wydler/gps-evaluator"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "refs"
+options "bibtotoc,plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

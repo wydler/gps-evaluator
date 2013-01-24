@@ -1,0 +1,4 @@
+var source = new EventSource('/gps/events');
+source.addEventListener('clk', function(e) { do something with data }, false);
+source.addEventListener('gps', function(e) { do something with data }, false);
+source.addEventListener('ext', function(e) { do something with data }, false);
